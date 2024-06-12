@@ -9,34 +9,81 @@
 :root {
     --green-black: #2E4F3B;
     --green-dark: #427154;
-    --green:#55916C;
-    --green-apple:#8EBDA0;
-    --green-light:#CFE3D6;
+    --green: #55916C;
+    --green-apple: #8EBDA0;
+    --green-light: #CFE3D6;
     --green-white: #EFF6F1;
 
-    --beige-dark:#EFD5B4; 
-    --beige:#F3E0C8;
-    --beige-light:#F8ECDE;
-    --beige-white:#FCF8F2;
+    --beige-dark: #EFD5B4;
+    --beige: #F3E0C8;
+    --beige-light: #F8ECDE;
+    --beige-white: #FCF8F2;
 
-    --orange-black:#CD4D13;
-    --orange-dark:#EB6428;
-    --orange:#F48452;
-    --orange-light:#F7A682;
-    --orange-white:#FAC8B2;
+    --orange-black: #CD4D13;
+    --orange-dark: #EB6428;
+    --orange: #F48452;
+    --orange-light: #F7A682;
+    --orange-white: #FAC8B2;
 
-    --black-1000:#101014;
-    --black-900:#2A2A2D;
-    --grey-800:#444446;
-    --grey-700:#5F5E5F;
+    --black-1000: #101014;
+    --black-900: #2A2A2D;
+    --grey-800: #444446;
+    --grey-700: #5F5E5F;
     --grey-600: #797878;
-    --grey-500:#939191;
-    --grey-400:#ADABAA;
+    --grey-500: #939191;
+    --grey-400: #ADABAA;
     --grey-300: #C8C5C3;
     --grey-200: #E2DFDC;
     --grey-100: #FBF9F6;
 
-    --error:#AA0109;
+    --error: #AA0109;
     --error-light: #CC676B;
     --error-white: #DD999D;
+}
+
+
+*,
+::after,
+::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-scroll-chaining: none;
+    overscroll-behavior: none;
+}
+
+@media (min-width: 991px) {
+    * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+}
+
+input,
+textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+::-webkit-scrollbar {
+    -ms-overflow-style: none;
+    display: none;
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }
