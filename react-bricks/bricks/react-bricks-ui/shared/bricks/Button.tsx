@@ -8,19 +8,19 @@ import { buttonColorsEditProps } from '../../LayoutSideProps'
 export interface ButtonProps {
   type: 'button' | 'link'
   text: string
-  href: string
-  isTargetBlank: boolean
+  href?: string
+  isTargetBlank?: boolean
   buttonType: 'submit' | 'button' | 'reset'
-  buttonColor: {
+  buttonColor?: {
     color: string
-    classNameSolid: string
-    classNameOutline: string
-    classNameGhost: string
+    classNameSolid?: string
+    classNameOutline?: string
+    classNameGhost?: string
   }
   variant: 'solid' | 'outline' | 'ghost'
-  padding: 'normal' | 'small'
+  padding?: 'normal' | 'small'
   className?: string
-  simpleAnchorLink: boolean
+  simpleAnchorLink?: boolean
 }
 
 const Button: types.Brick<ButtonProps> = ({
