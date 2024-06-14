@@ -50,6 +50,10 @@ const Page: React.FC<PageProps> = ({
           <Head>
             {renderMeta(pageOk)}
             {renderJsonLd(pageOk)}
+            <link
+              href="https://fonts.googleapis.com/css2?family=Asap:ital,wdth,wght@0,75..125,100..900;1,75..125,100..900&display=swap"
+              rel="stylesheet"
+            />{' '}
           </Head>
           {headerOk && !errorHeader ? (
             <PageViewer page={headerOk} />

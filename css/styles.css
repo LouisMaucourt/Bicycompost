@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -42,6 +40,59 @@
 }
 
 
+/* FONTS */
+h1 {
+    font-family: 'Asap', sans-serif;
+    font-size: 4.5rem;
+}
+
+h2 {
+    font-family: 'Asap', sans-serif;
+    font-size: 4rem;
+}
+
+h3 {
+    font-family: 'Asap', sans-serif;
+    font-size: 3.5rem;
+}
+
+h4 {
+    font-family: 'Asap', sans-serif;
+    font-size: 3rem;
+}
+
+h5 {
+    font-family: 'Asap', sans-serif;
+    font-size: 2.5rem;
+}
+
+p {
+    font-family: 'General Sans', sans-serif;
+    font-size: 1.5rem;
+}
+
+small {
+    font-family: 'General Sans', sans-serif;
+    font-size: 1.25rem;
+}
+
+.very-small {
+    font-family: 'General Sans', sans-serif;
+    font-size: 1rem;
+}
+
+.cta-bold {
+    font-family: 'General Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.cta-regular {
+    font-family: 'General Sans', sans-serif;
+    font-size: 1.25rem;
+}
+
+/* FONT SMOOTHING */
 *,
 ::after,
 ::before {
