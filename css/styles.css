@@ -39,46 +39,59 @@
     --error-white: #DD999D;
 }
 
-
 /* FONTS */
 h1 {
     font-family: 'Asap', sans-serif;
     font-size: 4.5rem;
+        color: var(--green-black);
 }
 
 h2 {
     font-family: 'Asap', sans-serif;
     font-size: 4rem;
+        color: var(--green-black);
 }
 
 h3 {
     font-family: 'Asap', sans-serif;
     font-size: 3.5rem;
+        color: var(--green-black);
 }
 
 h4 {
     font-family: 'Asap', sans-serif;
     font-size: 3rem;
+        color: var(--green-black);
 }
 
 h5 {
     font-family: 'Asap', sans-serif;
     font-size: 2.5rem;
+        color: var(--green-black);
 }
 
 p {
     font-family: 'General Sans', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--green-black);
 }
 
 small {
     font-family: 'General Sans', sans-serif;
     font-size: 1.25rem;
 }
-
+a p{
+color: var(--grey-100);
+}
+li {
+    list-style-type: disc;
+    margin-left: 20px;
+        color: var(--green-black);
+}
 .very-small {
     font-family: 'General Sans', sans-serif;
     font-size: 1rem;
+        color: var(--green-black);
 }
 
 .cta-bold {
@@ -110,6 +123,7 @@ body {
     scrollbar-width: none;
     -ms-scroll-chaining: none;
     overscroll-behavior: none;
+    background-color: var(--beige-white);
 }
 
 @media (min-width: 991px) {
@@ -137,4 +151,73 @@ textarea {
     scrollbar-width: none;
     -ms-overflow-style: none;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+
+/* Container */
+.gridx2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.flex-between{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.background-beige {
+    background-color: var(--beige-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 35px;
+    height: 100vh;
+}
+.background-green {
+    background-color: var(--green-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 35px;
+    height: 100vh;
+}
+.container-content{
+        max-width: 1180px;
+        margin: auto;
+}
+
+/* Element */
+.margin-h-30{
+    margin: 30px 0px;
+}
+.button-text{
+    font-size: 1.2rem;
+    font-family: 'Asap', sans-serif;
+}
+.button-orange{
+    background-color: var(--orange-black);
+    font-size: 1.5rem;
+    display: inline-flex;
+    color:var(--grey-100);
+    padding: 10px 15px;
+    border-radius:12px 0px 12px 0px;
+}
+.button-orange:hover {
+    background-color: var(--orange-dark);
+}
+.button-orange:active{
+background-color: #F48452;
+}
+.font-medium{
+    font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+
+    .background-beige {
+        padding: 15px;
+    }
+
 }
