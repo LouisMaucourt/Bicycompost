@@ -3,3 +3,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Variable colors*/
+:root {
+    --green-black: #2E4F3B;
+    --green-dark: #427154;
+    --green:#55916C;
+    --green-apple:#8EBDA0;
+    --green-light:#CFE3D6;
+    --green-white: #EFF6F1;
+
+    --beige-dark:#EFD5B4; 
+    --beige:#F3E0C8;
+    --beige-light:#F8ECDE;
+    --beige-white:#FCF8F2;
+
+    --orange-black:#CD4D13;
+    --orange-dark:#EB6428;
+    --orange:#F48452;
+    --orange-light:#F7A682;
+    --orange-white:#FAC8B2;
+
+    --black-1000:#101014;
+    --black-900:#2A2A2D;
+    --grey-800:#444446;
+    --grey-700:#5F5E5F;
+    --grey-600: #797878;
+    --grey-500:#939191;
+    --grey-400:#ADABAA;
+    --grey-300: #C8C5C3;
+    --grey-200: #E2DFDC;
+    --grey-100: #FBF9F6;
+
+    --error:#AA0109;
+    --error-light: #CC676B;
+    --error-white: #DD999D;
+}
