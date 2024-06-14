@@ -74,6 +74,7 @@ enum blockNames {
   Office = 'contact-office',
   ContactsForm = 'contact-form',
   BlogTitle = 'blog-title',
+  BarreRecherche = 'barre-recherche',
 }
 
 export default blockNames
