@@ -276,6 +276,29 @@ export const bgColors = {
       className: 'bg-rose-100 dark:bg-gray-900',
     },
   },
+  GREEN_BLACK: {
+    label: 'Green Black',
+    value: {
+      color: '#2E4F3B',
+      className: 'bg-green-black',
+    },
+  },
+
+  BEIGE_LIGHT: {
+    label: 'Beige Light',
+    value: {
+      color: '#F8ECDE',
+      className: 'bg-beige-light',
+    },
+  },
+
+  BEIGE_WHITE: {
+    label: 'Beige White',
+    value: {
+      color: '#FCF8F2',
+      className: 'bg-beige-white',
+    },
+  },
 } as const satisfies Colors
 
 //====================

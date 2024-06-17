@@ -94,6 +94,40 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
             </div>
           </form>
 
+          {!searchResult ? <p>Recherchez votre situation</p> : null}
+
+          <div>
+            <div className="text-white font-bold text-lg mb-4">
+              Les résultats d’un{' '}
+              <span className="text-orange-400">client moyen</span> sur 1 an
+            </div>
+            {!searchResult && (
+              <p className="text-white">Recherchez votre situation</p>
+            )}
+            <div className="flex space-x-6">
+              <div className="bg-green-700 p-6 rounded-lg flex items-center space-x-4 text-block">
+                <div>
+                  <div className="text-white text-2xl font-bold">702 kg</div>
+                  <div className="text-green-200">CO2 Economisés</div>
+                </div>
+              </div>
+              <div className="bg-green-700 p-6 rounded-lg flex items-center space-x-4 text-block">
+                <div>
+                  <div className="text-white text-2xl font-bold">508 kg</div>
+                  <div className="text-green-200">Compost généré/ans</div>
+                </div>
+              </div>
+              <div className="bg-green-700 p-6 rounded-lg flex items-center space-x-4 text-block">
+                <div>
+                  <div className="text-white text-2xl font-bold">
+                    5 livraisons
+                  </div>
+                  <div className="text-green-200">Compost à un maraîcher</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {searchResult === 'petite-entreprise' ? (
             <p>Petite entreprise</p>
           ) : null}

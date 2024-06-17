@@ -264,12 +264,12 @@ textarea {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    
+
 }
 
 .custom-select-wrapper {
     position: relative;
-    display:flex;
+    display: flex;
     flex-basis: 100%
 }
 
@@ -284,4 +284,13 @@ textarea {
     right: 10px;
     transform: translateY(-50%);
     pointer-events: none;
+}
+
+/* TEXT BLOC SHAPES */
+
+.text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 0px 32px 32px 32px;
 }
