@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { types } from 'react-bricks/frontend'
+import { RichText, types } from 'react-bricks/frontend'
 import { useForm } from 'react-hook-form'
 import blockNames from '../react-bricks-ui/blockNames'
 import {
@@ -18,7 +18,7 @@ export interface FormBuilderProps extends LayoutProps {
   buttonPosition: string
 }
 
-const BarreRecherche: types.Brick<FormBuilderProps> = ({
+const SituationSearch: types.Brick<FormBuilderProps> = ({
   backgroundColor,
   borderTop,
   borderBottom,
@@ -34,22 +34,12 @@ const BarreRecherche: types.Brick<FormBuilderProps> = ({
 
   const [gazEffetDeSerre, setGazEffetDeSerre] = useState(0)
 
-  function getFormData() {
+  const onSubmit = () => {
     const formData = new FormData(event.target)
     const query = formData.get('query')
     const value = formData.get('value') as string
-    return { query, value }
-  }
-
-  const onSubmit = () => {
-    const { query, value } = getFormData()
     setSearchResult(query as string)
     calcul(parseFloat(value))
-  }
-
-  const clearForm = () => {
-    setSearchResult('')
-    setGazEffetDeSerre(0)
   }
 
   function calcul(value: number) {
@@ -66,6 +56,19 @@ const BarreRecherche: types.Brick<FormBuilderProps> = ({
         borderBottom={borderBottom}
       >
         <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
+          {/* <RichText
+            propName="description"
+            value={description}
+            renderBlock={({ children }) => (
+              <p className="text-lg text-gray-500">{children}</p>
+            )}
+            placeholder="Type a description"
+            allowedFeatures={[
+              types.RichTextFeatures.Bold,
+              types.RichTextFeatures.Highlight,
+            ]}
+          /> */}
+
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex">
               <div className="custom-select-wrapper">
@@ -85,9 +88,6 @@ const BarreRecherche: types.Brick<FormBuilderProps> = ({
                 name="value"
                 className="custom-input"
               />
-              <div>
-                coucou <i className="bi bi-search"></i>
-              </div>{' '}
               <Button
                 type="button"
                 buttonType="submit"
@@ -101,8 +101,6 @@ const BarreRecherche: types.Brick<FormBuilderProps> = ({
               />
             </div>
           </form>
-
-          <p onClick={clearForm}>Clear form</p>
 
           {searchResult === 'petite-entreprise' ? (
             <p>Petite entreprise</p>
@@ -121,11 +119,11 @@ const BarreRecherche: types.Brick<FormBuilderProps> = ({
   )
 }
 
-BarreRecherche.schema = {
-  name: blockNames.BarreRecherche,
-  label: 'Barre de recherche',
+SituationSearch.schema = {
+  name: blockNames.SituationSearch,
+  label: 'Recherche par situation',
   category: 'Forms',
-  previewImageUrl: `/bricks-preview-images/${blockNames.BarreRecherche}.png`,
+  previewImageUrl: `/bricks-preview-images/${blockNames.SituationSearch}.png`,
   repeaterItems: [
     {
       name: 'form-elements',
@@ -204,4 +202,4 @@ BarreRecherche.schema = {
   }),
 }
 
-export default BarreRecherche
+export default SituationSearch
