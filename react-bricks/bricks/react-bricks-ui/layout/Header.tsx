@@ -45,8 +45,8 @@ const Header: types.Brick<HeaderProps> = ({
       ? 'dark'
       : 'light'
     : typeof window === 'undefined'
-    ? ''
-    : localStorage.getItem('color-mode')
+      ? ''
+      : localStorage.getItem('color-mode')
 
   useEffect(() => {
     setMounted(true)
@@ -231,7 +231,7 @@ Header.schema = {
       props: {
         ...sectionDefaults,
         borderBottom: 'none',
-        backgroundColor: bgColors.DARK_GRAY.value,
+        backgroundColor: bgColors.GREEN.value,
         menuItems: [
           {
             linkPath: '/',
