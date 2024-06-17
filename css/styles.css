@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Variable colors*/
 :root {
     --green-black: #2E4F3B;
@@ -74,6 +73,12 @@ p {
     font-family: 'General Sans', sans-serif;
     font-size: 1.2rem;
     color: var(--green-black);
+}
+
+.p-button {
+    font-family: 'General Sans', sans-serif;
+    font-size: 1.2rem;
+    color: var(--grey-100);
 }
 
 small {
@@ -194,7 +199,7 @@ textarea {
     margin: auto;
 }
 
-/* Element */
+/* BUTTON */
 .margin-h-30 {
     margin: 30px 0px;
 }
@@ -210,8 +215,17 @@ textarea {
     display: inline-flex;
     color: var(--grey-100);
     padding: 10px 15px;
+    height: 3.25rem;
+}
+
+.button-orange.default {
     border-radius: 12px 0px 12px 0px;
 }
+
+.button-orange.submit {
+    border-radius: 0px 0px 12px 0px;
+}
+
 
 .button-orange:hover {
     background-color: var(--orange-dark);
@@ -225,35 +239,38 @@ textarea {
     font-weight: 500;
 }
 
-@media screen and (max-width: 768px) {
 
+@media screen and (max-width: 768px) {
     .background-beige {
         padding: 15px;
     }
-
 }
 
 /* FORMS */
 
+.search-situation-section {
+    width: 100%;
+}
+
 .custom-input,
 .custom-select {
-    outline: var(--green-black) auto 5px;
-    width: 500px;
+    background: transparent;
+    height: 3.25rem;
+    flex-basis: 100%
+}
+
+.custom-select {
+    border-radius: 12px 0px 0px 0px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
 }
 
 .custom-select-wrapper {
     position: relative;
-    display: inline-block;
-}
-
-.custom-select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background: transparent;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    display:flex;
+    flex-basis: 100%
 }
 
 .custom-select::-ms-expand {

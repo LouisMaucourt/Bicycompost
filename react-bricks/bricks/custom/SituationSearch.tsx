@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { RichText, types } from 'react-bricks/frontend'
+import { RichText, Text, types } from 'react-bricks/frontend'
 import { useForm } from 'react-hook-form'
 import blockNames from '../react-bricks-ui/blockNames'
 import {
@@ -10,12 +10,14 @@ import {
 } from '../react-bricks-ui/LayoutSideProps'
 import Section from '../react-bricks-ui/shared/components/Section'
 import Container from '../react-bricks-ui/shared/components/Container'
-import { Button } from '../react-bricks-ui'
+// import { Button } from '../react-bricks-ui'
 import { buttonColors } from '../react-bricks-ui/colors'
 import { useState } from 'react'
-
+import Button from '../custom/button/Button'
+import SubmitButton from '../custom/button/SubmitButton'
 export interface FormBuilderProps extends LayoutProps {
-  buttonPosition: string
+  title: types.TextValue
+  description: types.TextValue
 }
 
 const SituationSearch: types.Brick<FormBuilderProps> = ({
@@ -24,6 +26,8 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
   borderBottom,
   paddingTop,
   paddingBottom,
+  title,
+  description,
 }) => {
   const {
     handleSubmit,
@@ -56,21 +60,14 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
         borderBottom={borderBottom}
       >
         <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
-          {/* <RichText
-            propName="description"
-            value={description}
-            renderBlock={({ children }) => (
-              <p className="text-lg text-gray-500">{children}</p>
-            )}
-            placeholder="Type a description"
-            allowedFeatures={[
-              types.RichTextFeatures.Bold,
-              types.RichTextFeatures.Highlight,
-            ]}
-          /> */}
-
+          <Text
+            propName="title"
+            value={title}
+            renderBlock={({ children }) => <h3>{children}</h3>}
+            placeholder="Type a title..."
+          />
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex">
+            <div className="flex search-situation-section">
               <div className="custom-select-wrapper">
                 <select name="query" className="custom-select" required>
                   <option value="" disabled selected hidden>
@@ -88,16 +85,11 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
                 name="value"
                 className="custom-input"
               />
-              <Button
-                type="button"
+
+              <SubmitButton
+                buttonStyle="button-orange submit"
+                buttonText="Rechercher"
                 buttonType="submit"
-                text="Rechercher"
-                buttonColor={{
-                  color: 'blue',
-                  classNameSolid: 'bg-blue-500 text-white',
-                }}
-                variant="solid"
-                padding="normal"
               />
             </div>
           </form>
@@ -121,7 +113,7 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
 
 SituationSearch.schema = {
   name: blockNames.SituationSearch,
-  label: 'Recherche par situation',
+  label: 'Situation Search',
   category: 'Forms',
   previewImageUrl: `/bricks-preview-images/${blockNames.SituationSearch}.png`,
   repeaterItems: [
