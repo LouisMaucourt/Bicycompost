@@ -13,7 +13,6 @@ import Container from '../react-bricks-ui/shared/components/Container'
 import { Button } from '../react-bricks-ui'
 import { buttonColors } from '../react-bricks-ui/colors'
 import { useState } from 'react'
-import styles from './BarreRecherche.module.css'
 
 export interface FormBuilderProps extends LayoutProps {
   buttonPosition: string
@@ -35,12 +34,22 @@ const BarreRecherche: types.Brick<FormBuilderProps> = ({
 
   const [gazEffetDeSerre, setGazEffetDeSerre] = useState(0)
 
-  const onSubmit = () => {
+  function getFormData() {
     const formData = new FormData(event.target)
     const query = formData.get('query')
     const value = formData.get('value') as string
+    return { query, value }
+  }
+
+  const onSubmit = () => {
+    const { query, value } = getFormData()
     setSearchResult(query as string)
     calcul(parseFloat(value))
+  }
+
+  const clearForm = () => {
+    setSearchResult('')
+    setGazEffetDeSerre(0)
   }
 
   function calcul(value: number) {
@@ -59,21 +68,26 @@ const BarreRecherche: types.Brick<FormBuilderProps> = ({
         <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex">
-              <select name="query" required>
-                <option value="" disabled selected hidden>
-                  Type d'entreprise
-                </option>
-                <option value="petite-entreprise">Petite entreprise</option>
-                <option value="grande-entreprise">Grande entreprise</option>
-                <option value="collectivite">Collectivité</option>
-              </select>
+              <div className="custom-select-wrapper">
+                <select name="query" className="custom-select" required>
+                  <option value="" disabled selected hidden>
+                    Type d'entreprise
+                  </option>
+                  <option value="petite-entreprise">Petite entreprise</option>
+                  <option value="grande-entreprise">Grande entreprise</option>
+                  <option value="collectivite">Collectivité</option>
+                </select>
+              </div>
               <input
                 type="number"
                 min={0}
                 placeholder="Nombre de déchets en litres"
                 name="value"
+                className="custom-input"
               />
-
+              <div>
+                coucou <i className="bi bi-search"></i>
+              </div>{' '}
               <Button
                 type="button"
                 buttonType="submit"
@@ -87,6 +101,8 @@ const BarreRecherche: types.Brick<FormBuilderProps> = ({
               />
             </div>
           </form>
+
+          <p onClick={clearForm}>Clear form</p>
 
           {searchResult === 'petite-entreprise' ? (
             <p>Petite entreprise</p>
