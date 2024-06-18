@@ -1,16 +1,13 @@
 import * as React from 'react'
-import { RichText, Text, types } from 'react-bricks/frontend'
-import { useForm } from 'react-hook-form'
+import { Text, types } from 'react-bricks/frontend'
 import blockNames from '../react-bricks-ui/blockNames'
 import {
   LayoutProps,
   backgroundSideGroup,
-  paddingBordersSideGroup,
   sectionDefaults,
 } from '../react-bricks-ui/LayoutSideProps'
 import Section from '../react-bricks-ui/shared/components/Section'
 import Container from '../react-bricks-ui/shared/components/Container'
-// import { Button } from '../react-bricks-ui'
 import { buttonColors } from '../react-bricks-ui/colors'
 import { useState } from 'react'
 import Button from '../custom/button/Button'
@@ -27,22 +24,15 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
   paddingTop,
   paddingBottom,
   title,
-  description,
 }) => {
-  const {
-    handleSubmit,
-    formState: { errors },
-  } = useForm()
-
   const [searchResult, setSearchResult] = useState('')
-
   const [gazEffetDeSerre, setGazEffetDeSerre] = useState(0)
 
-  const onSubmit = () => {
-    const formData = new FormData(event.target)
-    const query = formData.get('query')
-    const value = formData.get('value') as string
-    setSearchResult(query as string)
+  const onSubmit = (event) => {
+    event.preventDefault()
+    const query = event.target.query.value
+    const value = event.target.value.value
+    setSearchResult(query)
     calcul(parseFloat(value))
   }
 
@@ -63,10 +53,12 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
           <Text
             propName="title"
             value={title}
-            renderBlock={({ children }) => <h3>{children}</h3>}
+            renderBlock={({ children }) => (
+              <h3 className="beige-light">{children}</h3>
+            )}
             placeholder="Type a title..."
           />
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={onSubmit}>
             <div className="flex search-situation-section">
               <div className="custom-select-wrapper">
                 <select name="query" className="custom-select" required>
@@ -165,29 +157,7 @@ SituationSearch.schema = {
     },
   ],
 
-  sideEditProps: [
-    {
-      groupName: 'Buttons',
-      defaultOpen: true,
-      props: [
-        {
-          name: 'buttonPosition',
-          label: 'Buttons position',
-          type: types.SideEditPropType.Select,
-          selectOptions: {
-            display: types.OptionsDisplay.Select,
-            options: [
-              { value: 'justify-start', label: 'Left' },
-              { value: 'justify-center', label: 'Center' },
-              { value: 'justify-end', label: 'Right' },
-            ],
-          },
-        },
-      ],
-    },
-    backgroundSideGroup,
-    paddingBordersSideGroup,
-  ],
+  sideEditProps: [backgroundSideGroup],
 
   getDefaultProps: () => ({
     ...sectionDefaults,

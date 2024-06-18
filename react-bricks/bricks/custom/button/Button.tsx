@@ -1,5 +1,5 @@
 import React from 'react'
-import { types, Text, Link } from 'react-bricks/frontend'
+import { Image, types, Text, Link } from 'react-bricks/frontend'
 
 interface ButtonProps {
   buttonText: types.TextValue
@@ -14,6 +14,11 @@ const Button: types.Brick<ButtonProps> = ({
 }) => {
   return (
     <Link href={buttonPath} className={buttonStyle}>
+      <Image
+        propName="buttonIcon"
+        alt="Icon"
+        imageClassName="h-6 content-center"
+      />
       <Text
         propName="buttonText"
         value={buttonText}
@@ -44,6 +49,11 @@ Button.schema = {
         value?.startsWith('/') ||
         value?.startsWith('https://') ||
         'Please enter a valid URL',
+    },
+    {
+      name: 'buttonIcon',
+      label: 'Icon',
+      type: types.SideEditPropType.Image,
     },
   ],
 }

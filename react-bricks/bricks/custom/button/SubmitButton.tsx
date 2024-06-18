@@ -1,5 +1,5 @@
 import React from 'react'
-import { types, Text, Link } from 'react-bricks/frontend'
+import { Image, types, Text } from 'react-bricks/frontend'
 
 interface SubmitButtonProps {
   buttonText: types.TextValue
@@ -14,6 +14,11 @@ const SubmitButton: types.Brick<SubmitButtonProps> = ({
 }) => {
   return (
     <button type={buttonType} className={buttonStyle}>
+      <Image
+        propName="buttonIcon"
+        alt="Icon"
+        imageClassName="h-6 content-center"
+      />
       <Text
         propName="buttonText"
         value={buttonText}
@@ -35,6 +40,15 @@ SubmitButton.schema = {
     buttonType: 'submit',
     buttonStyle: 'button-orange submit',
   }),
+
+  // Sidebar Edit controls for props
+  sideEditProps: [
+    {
+      name: 'buttonIcon',
+      label: 'Icon',
+      type: types.SideEditPropType.Image,
+    },
+  ],
 }
 
 export default SubmitButton
