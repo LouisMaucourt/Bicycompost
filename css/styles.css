@@ -416,11 +416,27 @@ h4 {
     pointer-events: none;
 }
 
-/* TEXT BLOC SHAPES */
-
+/* TEXT BLOCK SHAPES */
 .text-block {
     display: flex;
     flex-direction: column;
     gap: 20px;
     border-radius: 0px 32px 32px 32px;
+}
+
+/* INTERACTIVE MAP */
+#map {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+#map path {
+    fill: var(--green);
+    stroke: var(--beige-white);
+    stroke-width: 1;
+    transition: fill 0.2s, stroke 0.3s;
+}
+
+#map path:hover {
+    fill: var(--green-black);
 }
