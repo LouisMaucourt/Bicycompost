@@ -2,12 +2,14 @@ import React from 'react'
 import { Image, types, Text, Link } from 'react-bricks/frontend'
 
 interface ButtonProps {
+  propName: string
   buttonText: types.TextValue
   buttonStyle: string
   buttonPath: string
 }
 
 const Button: types.Brick<ButtonProps> = ({
+  propName,
   buttonText,
   buttonPath,
   buttonStyle,
@@ -20,7 +22,7 @@ const Button: types.Brick<ButtonProps> = ({
         imageClassName="h-6 content-center"
       />
       <Text
-        propName="buttonText"
+        propName={propName}
         value={buttonText}
         placeholder="Action"
         renderBlock={({ children }) => <p className="inline">{children}</p>}

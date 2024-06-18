@@ -277,7 +277,7 @@ textarea {
 
 .custom-input,
 .custom-select {
-    background: transparent;
+    background: white;
     height: 3.25rem;
     flex-basis: 100%
 }

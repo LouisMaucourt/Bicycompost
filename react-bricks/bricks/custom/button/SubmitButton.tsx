@@ -2,12 +2,14 @@ import React from 'react'
 import { Image, types, Text } from 'react-bricks/frontend'
 
 interface SubmitButtonProps {
+  propName: string
   buttonText: types.TextValue
   buttonStyle: string
   buttonType: 'submit'
 }
 
 const SubmitButton: types.Brick<SubmitButtonProps> = ({
+  propName,
   buttonText,
   buttonStyle,
   buttonType,
@@ -20,12 +22,13 @@ const SubmitButton: types.Brick<SubmitButtonProps> = ({
         imageClassName="h-6 content-center"
       />
       <Text
-        propName="buttonText"
+        propName={propName}
         value={buttonText}
         placeholder="Action"
         renderBlock={({ children }) => (
-          <p className="inline p-button">{children}</p>
+          <p className="p-button">{children}</p>
         )}
+        renderPlaceholder={() => <p className="p-button">Action</p>}
       />
     </button>
   )

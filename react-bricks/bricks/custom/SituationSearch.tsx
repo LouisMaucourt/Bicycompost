@@ -11,6 +11,9 @@ import Container from '../react-bricks-ui/shared/components/Container'
 import { buttonColors } from '../react-bricks-ui/colors'
 import { useState } from 'react'
 import SubmitButton from '../custom/button/SubmitButton'
+import Button from './button/Button'
+import Spacer from '../react-bricks-ui/separators/Spacer/Spacer'
+import HorizontalRule from '../react-bricks-ui/separators/HorizontalRule/HorizontalRule'
 
 export interface FormBuilderProps extends LayoutProps {
   title: types.TextValue
@@ -26,20 +29,29 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
   title,
 }) => {
   const [searchResult, setSearchResult] = useState('')
-  const [gazEffetDeSerre, setGazEffetDeSerre] = useState(0)
+
+  const [gasQuantity, setGasQuantity] = useState(0)
+  const [compostQuantity, setCompostQuantity] = useState(0)
+  const [deliveryQuantity, setDeliveryQuantity] = useState(0)
 
   const onSubmit = (event) => {
     event.preventDefault()
-    const query = event.target.query.value
-    const value = event.target.value.value
-    setSearchResult(query)
-    calcul(parseFloat(value))
+    const company = event.target.company.value
+    const wasteQuantity = event.target.wasteQuantity.value
+    setSearchResult(company)
+    customerSimulation(parseFloat(wasteQuantity))
   }
 
-  function calcul(value: number) {
-    const gazEffetDeSerre = value / 2
-    setGazEffetDeSerre(gazEffetDeSerre)
-    return gazEffetDeSerre
+  function customerSimulation(wasteQuantity: number) {
+    const gasQuantity = wasteQuantity * 10
+    setGasQuantity(gasQuantity)
+
+    const compostQuantity = Math.round(wasteQuantity / 7.2)
+    setCompostQuantity(compostQuantity)
+
+    const kgPerDelivery = 100
+    const deliveryQuantity = Math.ceil(compostQuantity / kgPerDelivery)
+    setDeliveryQuantity(deliveryQuantity)
   }
 
   return (
@@ -58,27 +70,41 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
             )}
             placeholder="Type a title..."
           />
+          <Spacer
+            height="py-10"
+            backgroundColor={backgroundColor}
+            borderTop={'full'}
+            borderBottom={'full'}
+            paddingTop={'0'}
+            paddingBottom={'0'}
+          />
+          {/* FORM */}
           <form onSubmit={onSubmit}>
             <div className="flex search-situation-section">
               <div className="custom-select-wrapper">
-                <select name="query" className="custom-select" required>
+                <select name="company" className="custom-select" required>
                   <option value="" disabled selected hidden>
                     Type d'entreprise
                   </option>
                   <option value="petite-entreprise">Petite entreprise</option>
                   <option value="grande-entreprise">Grande entreprise</option>
                   <option value="collectivite">Collectivité</option>
+                  <option value="hotellerie-restauration">
+                    Hôtellerie-Restauration
+                  </option>
                 </select>
               </div>
               <input
                 type="number"
                 min={0}
                 placeholder="Nombre de déchets en litres"
-                name="value"
+                name="wasteQuantity"
                 className="custom-input"
+                required
               />
 
               <SubmitButton
+                propName="submit-button"
                 buttonStyle="button-orange submit"
                 buttonText="Rechercher"
                 buttonType="submit"
@@ -86,127 +112,299 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
             </div>
           </form>
 
-          <div>
-            <RichText
-              propName="genericTitle"
-              renderBlock={({ children }) => (
-                <h5 className="beige-light">{children}</h5>
-              )}
-              placeholder="Description..."
-              allowedFeatures={[
-                types.RichTextFeatures.Bold,
-                types.RichTextFeatures.Italic,
-              ]}
-            />
+          <Spacer
+            height="default"
+            backgroundColor={backgroundColor}
+            borderTop={'full'}
+            borderBottom={'full'}
+            paddingTop={'0'}
+            paddingBottom={'0'}
+          />
 
-            <div className="flex space-x-6">
-              {/* LEFT BLOCK */}
-              <div className="bg-green-dark p-6 rounded-lg flex items-center space-x-4 text-block min-w-80">
-                <div className="flex gap-5">
-                  <Image
-                    propName="leftSection-icon"
-                    alt="Icon"
-                    imageClassName="size-20 content-center"
-                  />
-                  <div className="flex-col min-w-80">
-                    <Text
-                      propName="leftSection-text"
-                      value={title}
-                      renderBlock={({ children }) => (
-                        <h5 className="beige-light">{children}</h5>
-                      )}
-                      placeholder="Type a title..."
+          {!searchResult ? (
+            // GENERIC CUSTOMER SECTION
+            <div>
+              <RichText
+                propName="genericTitle"
+                renderBlock={({ children }) => (
+                  <h5 className="beige-light">{children}</h5>
+                )}
+                placeholder="Description..."
+                allowedFeatures={[
+                  types.RichTextFeatures.Bold,
+                  types.RichTextFeatures.Italic,
+                ]}
+              />
+              <HorizontalRule
+                borderTop={'full'}
+                borderBottom={'full'}
+                paddingTop={'0'}
+                paddingBottom={'0'}
+              />
+              <Spacer
+                height="2"
+                backgroundColor={backgroundColor}
+                borderTop={'full'}
+                borderBottom={'full'}
+                paddingTop={'0'}
+                paddingBottom={'0'}
+              />
+              {/* 3 BLOCKS GENERIC */}
+              <div className="flex space-x-6">
+                {/* LEFT BLOCK */}
+                <div className="bg-green-dark p-6 rounded-lg flex items-center space-x-4 text-block min-w-80">
+                  <div className="flex gap-5">
+                    <Image
+                      propName="leftSection-icon"
+                      alt="Icon"
+                      imageClassName="size-20 content-center"
                     />
-                    <RichText
-                      propName="leftSection-description"
-                      renderBlock={({ children }) => (
-                        <p className="beige-light">{children}</p>
-                      )}
-                      placeholder="Description..."
-                      allowedFeatures={[
-                        types.RichTextFeatures.Bold,
-                        types.RichTextFeatures.Italic,
-                      ]}
-                    />
+                    <div className="flex-col min-w-80">
+                      <Text
+                        propName="leftSection-text"
+                        value="Title"
+                        renderBlock={({ children }) => (
+                          <h5 className="beige-light">{children}</h5>
+                        )}
+                        placeholder="Type a title..."
+                      />
+                      <RichText
+                        propName="leftSection-description"
+                        renderBlock={({ children }) => (
+                          <p className="beige-light">{children}</p>
+                        )}
+                        placeholder="Description..."
+                        allowedFeatures={[
+                          types.RichTextFeatures.Bold,
+                          types.RichTextFeatures.Italic,
+                        ]}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-              {/* MIDDLE BLOCK */}
-              <div className="bg-green-dark p-6 rounded-lg flex items-center space-x-4 text-block">
-                <div className="flex min-w-80">
-                  <Image
-                    propName="middleSection-icon"
-                    alt="Icon"
-                    imageClassName="size-20 content-center"
-                  />
-                  <div className="flex-col">
-                    <Text
-                      propName="middleSection-text"
-                      value={title}
-                      renderBlock={({ children }) => (
-                        <h5 className="beige-light">{children}</h5>
-                      )}
-                      placeholder="Type a title..."
+                {/* MIDDLE BLOCK */}
+                <div className="bg-green-dark p-6 rounded-lg flex items-center space-x-4 text-block">
+                  <div className="flex min-w-80">
+                    <Image
+                      propName="middleSection-icon"
+                      alt="Icon"
+                      imageClassName="size-20 content-center"
                     />
-                    <RichText
-                      propName="middleSection-description"
-                      renderBlock={({ children }) => (
-                        <p className="beige-light">{children}</p>
-                      )}
-                      placeholder="Description..."
-                      allowedFeatures={[
-                        types.RichTextFeatures.Bold,
-                        types.RichTextFeatures.Italic,
-                      ]}
-                    />
+                    <div className="flex-col">
+                      <Text
+                        propName="middleSection-text"
+                        value="Title"
+                        renderBlock={({ children }) => (
+                          <h5 className="beige-light">{children}</h5>
+                        )}
+                        placeholder="Type a title..."
+                      />
+                      <RichText
+                        propName="middleSection-description"
+                        renderBlock={({ children }) => (
+                          <p className="beige-light">{children}</p>
+                        )}
+                        placeholder="Description..."
+                        allowedFeatures={[
+                          types.RichTextFeatures.Bold,
+                          types.RichTextFeatures.Italic,
+                        ]}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-              {/* RIGHT BLOCK */}
-              <div className="bg-green-dark p-6 rounded-lg flex items-center space-x-4 text-block">
-                <div className="flex min-w-80">
-                  <Image
-                    propName="rightSection-icon"
-                    alt="Icon"
-                    imageClassName="size-20 content-center"
-                  />
-                  <div className="flex-col min-w-80">
-                    <Text
-                      propName="rightSection-text"
-                      value={title}
-                      renderBlock={({ children }) => (
-                        <h5 className="beige-light">{children}</h5>
-                      )}
-                      placeholder="Type a title..."
+                {/* RIGHT BLOCK */}
+                <div className="bg-green-dark p-6 rounded-lg flex items-center space-x-4 text-block">
+                  <div className="flex min-w-80">
+                    <Image
+                      propName="rightSection-icon"
+                      alt="Icon"
+                      imageClassName="size-20 content-center"
                     />
-                    <RichText
-                      propName="rightSection-description"
-                      renderBlock={({ children }) => (
-                        <p className="beige-light">{children}</p>
-                      )}
-                      placeholder="Description..."
-                      allowedFeatures={[
-                        types.RichTextFeatures.Bold,
-                        types.RichTextFeatures.Italic,
-                      ]}
-                    />
+                    <div className="flex-col min-w-80">
+                      <Text
+                        propName="rightSection-text"
+                        value="Title"
+                        renderBlock={({ children }) => (
+                          <h5 className="beige-light">{children}</h5>
+                        )}
+                        placeholder="Type a title..."
+                      />
+                      <RichText
+                        propName="rightSection-description"
+                        renderBlock={({ children }) => (
+                          <p className="beige-light">{children}</p>
+                        )}
+                        placeholder="Description..."
+                        allowedFeatures={[
+                          types.RichTextFeatures.Bold,
+                          types.RichTextFeatures.Italic,
+                        ]}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            // SIMULATOR CUSTOMER SECTION
+            <div>
+              <RichText
+                propName="simulationTitle"
+                renderBlock={({ children }) => (
+                  <h5 className="beige-light">{children}</h5>
+                )}
+                placeholder="Description..."
+                allowedFeatures={[
+                  types.RichTextFeatures.Bold,
+                  types.RichTextFeatures.Italic,
+                ]}
+              />
+
+              <HorizontalRule
+                borderTop={'full'}
+                borderBottom={'full'}
+                paddingTop={'0'}
+                paddingBottom={'0'}
+              />
+
+              <Spacer
+                height="2"
+                backgroundColor={backgroundColor}
+                borderTop={'full'}
+                borderBottom={'full'}
+                paddingTop={'0'}
+                paddingBottom={'0'}
+              />
+
+              {/* 3 BLOCKS SIMULATOR */}
+              <div className="flex space-x-6">
+                {/* LEFT BLOCK */}
+                <div className="bg-beige-light p-6 rounded-lg flex items-center space-x-4 text-block min-w-80">
+                  <div className="flex gap-5">
+                    <Image
+                      propName="leftSection-icon"
+                      alt="Icon"
+                      imageClassName="size-20 content-center"
+                    />
+                    <div className="flex-col min-w-80">
+                      <h5 className="green-black">{gasQuantity} kg</h5>
+                      <RichText
+                        propName="leftSection-description"
+                        renderBlock={({ children }) => (
+                          <p className="green-black">{children}</p>
+                        )}
+                        placeholder="Description..."
+                        allowedFeatures={[
+                          types.RichTextFeatures.Bold,
+                          types.RichTextFeatures.Italic,
+                        ]}
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* MIDDLE BLOCK */}
+                <div className="bg-beige-light p-6 rounded-lg flex items-center space-x-4 text-block">
+                  <div className="flex min-w-80">
+                    <Image
+                      propName="middleSection-icon"
+                      alt="Icon"
+                      imageClassName="size-20 content-center"
+                    />
+                    <div className="flex-col">
+                      <h5 className="green-black">{compostQuantity} kg</h5>
+                      <RichText
+                        propName="middleSection-description"
+                        renderBlock={({ children }) => (
+                          <p className="green-black">{children}</p>
+                        )}
+                        placeholder="Description..."
+                        allowedFeatures={[
+                          types.RichTextFeatures.Bold,
+                          types.RichTextFeatures.Italic,
+                        ]}
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/* RIGHT BLOCK */}
+                <div className="bg-beige-light p-6 rounded-lg flex items-center space-x-4 text-block">
+                  <div className="flex min-w-80">
+                    <Image
+                      propName="rightSection-icon"
+                      alt="Icon"
+                      imageClassName="size-20 content-center"
+                    />
+                    <div className="flex-col min-w-80">
+                      <h5 className="green-black">
+                        {deliveryQuantity}{' '}
+                        {deliveryQuantity > 1 ? ' livraisons' : 'livraison'}
+                      </h5>
+
+                      <RichText
+                        propName="rightSection-description"
+                        renderBlock={({ children }) => (
+                          <p className="green-black">{children}</p>
+                        )}
+                        placeholder="Description..."
+                        allowedFeatures={[
+                          types.RichTextFeatures.Bold,
+                          types.RichTextFeatures.Italic,
+                        ]}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <Spacer
+            height="2"
+            backgroundColor={backgroundColor}
+            borderTop={'full'}
+            borderBottom={'full'}
+            paddingTop={'0'}
+            paddingBottom={'0'}
+          />
 
           {searchResult === 'petite-entreprise' ? (
-            <p>Petite entreprise</p>
+            <Button
+              propName="button"
+              buttonText={''}
+              buttonStyle={'button-orange default button-text'}
+              buttonPath={''}
+            />
           ) : null}
-          {searchResult === 'grande-entreprise' ? (
-            <p>Grande entreprise</p>
-          ) : null}
-          {searchResult === 'collectivite' ? <p>Collectivité</p> : null}
 
-          {gazEffetDeSerre ? (
-            <p>{gazEffetDeSerre}kg de CO₂ économisé !</p>
+          {searchResult === 'petite-entreprise' ? (
+            <button className="button-orange default button-text">
+              Solutions pour petites entreprises
+            </button>
           ) : null}
+
+          {searchResult === 'grande-entreprise' ? (
+            <button className="button-orange default button-text">
+              Solutions pour grandes entreprises
+            </button>
+          ) : null}
+
+          {searchResult === 'collectivite' ? (
+            <button className="button-orange default button-text">
+              Solutions pour collectivités
+            </button>
+          ) : null}
+
+          {searchResult === 'hotellerie-restauration' ? (
+            <button className="button-orange default button-text">
+              Solutions pour hôtellerie-restauration
+            </button>
+          ) : null}
+
+          {/* {gasQuantity ? <p>{gasQuantity}kg de CO₂ économisé !</p> : null}
+          {compostQuantity ? (
+            <p>{compostQuantity}kg de compost généré !</p>
+          ) : null} */}
         </Container>
       </Section>
     </div>

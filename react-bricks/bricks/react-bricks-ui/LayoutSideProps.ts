@@ -228,6 +228,9 @@ export const badgeColorsEditProps = {
       highlightTextColors.FUCHSIA,
       highlightTextColors.PINK,
       highlightTextColors.ROSE,
+      highlightTextColors.GREEN_BLACK,
+      highlightTextColors.BEIGE_LIGHT,
+      highlightTextColors.BEIGE_WHITE,
     ],
   },
 }
@@ -318,6 +321,9 @@ export const highlightTextEditProps = {
       highlightTextColors.FUCHSIA,
       highlightTextColors.PINK,
       highlightTextColors.ROSE,
+      highlightTextColors.GREEN_BLACK,
+      highlightTextColors.BEIGE_LIGHT,
+      highlightTextColors.BEIGE_WHITE,
     ],
   },
 }
