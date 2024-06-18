@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Text, types } from 'react-bricks/frontend'
+import { Image, RichText, Text, types } from 'react-bricks/frontend'
 import blockNames from '../react-bricks-ui/blockNames'
 import {
   LayoutProps,
@@ -10,8 +10,8 @@ import Section from '../react-bricks-ui/shared/components/Section'
 import Container from '../react-bricks-ui/shared/components/Container'
 import { buttonColors } from '../react-bricks-ui/colors'
 import { useState } from 'react'
-import Button from '../custom/button/Button'
 import SubmitButton from '../custom/button/SubmitButton'
+
 export interface FormBuilderProps extends LayoutProps {
   title: types.TextValue
   description: types.TextValue
@@ -51,7 +51,7 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
       >
         <Container paddingTop={paddingTop} paddingBottom={paddingBottom}>
           <Text
-            propName="title"
+            propName="sectionTitle"
             value={title}
             renderBlock={({ children }) => (
               <h3 className="beige-light">{children}</h3>
@@ -86,35 +86,111 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
             </div>
           </form>
 
-          {!searchResult ? <p>Recherchez votre situation</p> : null}
-
           <div>
-            <div className="text-white font-bold text-lg mb-4">
-              Les résultats d’un{' '}
-              <span className="text-orange-400">client moyen</span> sur 1 an
-            </div>
-            {!searchResult && (
-              <p className="text-white">Recherchez votre situation</p>
-            )}
+            <RichText
+              propName="genericTitle"
+              renderBlock={({ children }) => (
+                <h5 className="beige-light">{children}</h5>
+              )}
+              placeholder="Description..."
+              allowedFeatures={[
+                types.RichTextFeatures.Bold,
+                types.RichTextFeatures.Italic,
+              ]}
+            />
+
             <div className="flex space-x-6">
-              <div className="bg-green-700 p-6 rounded-lg flex items-center space-x-4 text-block">
-                <div>
-                  <div className="text-white text-2xl font-bold">702 kg</div>
-                  <div className="text-green-200">CO2 Economisés</div>
-                </div>
-              </div>
-              <div className="bg-green-700 p-6 rounded-lg flex items-center space-x-4 text-block">
-                <div>
-                  <div className="text-white text-2xl font-bold">508 kg</div>
-                  <div className="text-green-200">Compost généré/ans</div>
-                </div>
-              </div>
-              <div className="bg-green-700 p-6 rounded-lg flex items-center space-x-4 text-block">
-                <div>
-                  <div className="text-white text-2xl font-bold">
-                    5 livraisons
+              {/* LEFT BLOCK */}
+              <div className="bg-green-dark p-6 rounded-lg flex items-center space-x-4 text-block min-w-80">
+                <div className="flex gap-5">
+                  <Image
+                    propName="leftSection-icon"
+                    alt="Icon"
+                    imageClassName="size-20 content-center"
+                  />
+                  <div className="flex-col min-w-80">
+                    <Text
+                      propName="leftSection-text"
+                      value={title}
+                      renderBlock={({ children }) => (
+                        <h5 className="beige-light">{children}</h5>
+                      )}
+                      placeholder="Type a title..."
+                    />
+                    <RichText
+                      propName="leftSection-description"
+                      renderBlock={({ children }) => (
+                        <p className="beige-light">{children}</p>
+                      )}
+                      placeholder="Description..."
+                      allowedFeatures={[
+                        types.RichTextFeatures.Bold,
+                        types.RichTextFeatures.Italic,
+                      ]}
+                    />
                   </div>
-                  <div className="text-green-200">Compost à un maraîcher</div>
+                </div>
+              </div>
+              {/* MIDDLE BLOCK */}
+              <div className="bg-green-dark p-6 rounded-lg flex items-center space-x-4 text-block">
+                <div className="flex min-w-80">
+                  <Image
+                    propName="middleSection-icon"
+                    alt="Icon"
+                    imageClassName="size-20 content-center"
+                  />
+                  <div className="flex-col">
+                    <Text
+                      propName="middleSection-text"
+                      value={title}
+                      renderBlock={({ children }) => (
+                        <h5 className="beige-light">{children}</h5>
+                      )}
+                      placeholder="Type a title..."
+                    />
+                    <RichText
+                      propName="middleSection-description"
+                      renderBlock={({ children }) => (
+                        <p className="beige-light">{children}</p>
+                      )}
+                      placeholder="Description..."
+                      allowedFeatures={[
+                        types.RichTextFeatures.Bold,
+                        types.RichTextFeatures.Italic,
+                      ]}
+                    />
+                  </div>
+                </div>
+              </div>
+              {/* RIGHT BLOCK */}
+              <div className="bg-green-dark p-6 rounded-lg flex items-center space-x-4 text-block">
+                <div className="flex min-w-80">
+                  <Image
+                    propName="rightSection-icon"
+                    alt="Icon"
+                    imageClassName="size-20 content-center"
+                  />
+                  <div className="flex-col min-w-80">
+                    <Text
+                      propName="rightSection-text"
+                      value={title}
+                      renderBlock={({ children }) => (
+                        <h5 className="beige-light">{children}</h5>
+                      )}
+                      placeholder="Type a title..."
+                    />
+                    <RichText
+                      propName="rightSection-description"
+                      renderBlock={({ children }) => (
+                        <p className="beige-light">{children}</p>
+                      )}
+                      placeholder="Description..."
+                      allowedFeatures={[
+                        types.RichTextFeatures.Bold,
+                        types.RichTextFeatures.Italic,
+                      ]}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
