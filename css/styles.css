@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Variable colors*/
 :root {
     --green-black: #2E4F3B;
@@ -43,55 +42,84 @@
 h1 {
     font-family: 'Asap', sans-serif;
     font-size: 4.5rem;
-        color: var(--green-black);
+    color: var(--green-black);
 }
 
 h2 {
     font-family: 'Asap', sans-serif;
     font-size: 4rem;
-        color: var(--green-black);
 }
 
 h3 {
     font-family: 'Asap', sans-serif;
     font-size: 3.5rem;
-        color: var(--green-black);
+}
+
+h3.beige-light {
+    color: var(--beige-light);
+}
+
+h3.green-black {
+    color: var(--green-black);
 }
 
 h4 {
     font-family: 'Asap', sans-serif;
     font-size: 3rem;
-        color: var(--green-black);
+    color: var(--green-black);
 }
 
 h5 {
     font-family: 'Asap', sans-serif;
     font-size: 2.5rem;
-        color: var(--green-black);
+}
+
+h5.green-black {
+    color: var(--green-black);
+}
+
+h5.beige-light {
+    color: var(--beige-light);
 }
 
 p {
     font-family: 'General Sans', sans-serif;
     font-size: 1.2rem;
+}
+
+p.beige-light {
+    color: var(--beige-light);
+}
+
+p.green-black {
     color: var(--green-black);
+}
+
+.p-button {
+    font-family: 'General Sans', sans-serif;
+    font-size: 1.2rem;
+    color: var(--grey-100);
 }
 
 small {
     font-family: 'General Sans', sans-serif;
     font-size: 1.25rem;
 }
-a p{
-color: var(--grey-100);
+
+a p {
+    color: var(--grey-100);
 }
+
 li {
     list-style-type: disc;
     margin-left: 20px;
-        color: var(--green-black);
+    color: var(--green-black);
 }
+
 .very-small {
     font-family: 'General Sans', sans-serif;
     font-size: 1rem;
-        color: var(--green-black);
+    color: var(--green-black);
 }
 
 .cta-bold {
@@ -155,11 +183,12 @@ textarea {
 
 
 /* Container */
-.gridx2{
+.gridx2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
-.flex-between{
+
+.flex-between {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -174,6 +203,7 @@ textarea {
     padding: 35px;
     height: 100vh;
 }
+
 .background-green {
     background-color: var(--green-dark);
     display: flex;
@@ -183,41 +213,107 @@ textarea {
     padding: 35px;
     height: 100vh;
 }
-.container-content{
-        max-width: 1180px;
-        margin: auto;
+
+.container-content {
+    max-width: 1180px;
+    margin: auto;
 }
 
-/* Element */
-.margin-h-30{
+/* BUTTON */
+.margin-h-30 {
     margin: 30px 0px;
 }
-.button-text{
+
+.button-text {
     font-size: 1.2rem;
     font-family: 'Asap', sans-serif;
 }
-.button-orange{
+
+.button-orange {
     background-color: var(--orange-black);
     font-size: 1.5rem;
     display: inline-flex;
-    color:var(--grey-100);
-    padding: 10px 15px;
-    border-radius:12px 0px 12px 0px;
+    justify-content: center;
+    align-items: center;
+    color: var(--grey-100);
+    padding: 1.5rem;
+    height: 3.25rem;
+    gap: 0.25rem;
 }
+
+.button-orange.default {
+    border-radius: 12px 0px 12px 0px;
+}
+
+.button-orange.submit {
+    border-radius: 0px 0px 12px 0px;
+}
+
+
 .button-orange:hover {
     background-color: var(--orange-dark);
 }
-.button-orange:active{
-background-color: #F48452;
+
+.button-orange:active {
+    background-color: #F48452;
 }
-.font-medium{
+
+.font-medium {
     font-weight: 500;
 }
 
-@media screen and (max-width: 768px) {
 
+@media screen and (max-width: 768px) {
     .background-beige {
         padding: 15px;
     }
+}
 
+/* FORMS */
+
+.search-situation-section {
+    width: 100%;
+}
+
+.custom-input,
+.custom-select {
+    background: white;
+    height: 3.25rem;
+    flex-basis: 100%
+}
+
+.custom-select {
+    border-radius: 12px 0px 0px 0px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+}
+
+.custom-select-wrapper {
+    position: relative;
+    display: flex;
+    flex-basis: 100%
+}
+
+.custom-select::-ms-expand {
+    display: none;
+}
+
+.custom-select-wrapper::after {
+    content: url('https://assets.reactbricks.com/I9Q1BfsHQDk_MLe/images/master/19n9kyyhUZlB3oF.svg');
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* TEXT BLOC SHAPES */
+
+.text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 0px 32px 32px 32px;
 }

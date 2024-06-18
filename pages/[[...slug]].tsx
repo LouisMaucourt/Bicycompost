@@ -53,6 +53,10 @@ const Page: React.FC<PageProps> = ({
             <link
               href="https://fonts.googleapis.com/css2?family=Asap:ital,wdth,wght@0,75..125,100..900;1,75..125,100..900&display=swap"
               rel="stylesheet"
+            />
+            <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
             />{' '}
           </Head>
           {headerOk && !errorHeader ? (
