@@ -17,6 +17,7 @@ import SubmitButton from './custom/button/SubmitButton'
 import SituationSearch from './custom/SituationSearch'
 import InteractiveMap from './react-bricks-ui/contacts/Maps/InteractiveMap'
 import TextImageLeft from './custom/TextImageLeft'
+import TextListGrid from './custom/TextListGrid'
 import EngagementPoints from './custom/EngagementPoints'
 import CardVehicule from './custom/CardVehicule'
 
@@ -40,6 +41,7 @@ const bricks: types.Theme[] = [
           // TEXT + IMAGE
           TextImage,
           TextImageLeft,
+          TextListGrid,
           // CAROUSELS,
           CardCarousel,
           BlogCarousel,
