@@ -1,6 +1,6 @@
 import React from 'react'
 import { types, Text, RichText, Image, useAdminContext } from 'react-bricks/frontend'
-import blockNames from '../../blockNames'
+import blockNames from '../../react-bricks-ui/blockNames'
 
 interface ImageCarouselItemProps {
   adaptAspectRatio: boolean
@@ -12,27 +12,11 @@ interface ImageCarouselItemProps {
 }
 
 const ImageCarouselItem: types.Brick<ImageCarouselItemProps> = ({
-  adaptAspectRatio,
-  slidesToShow,
   titleName,
   date,
   description,
   image
 }) => {
-  let aspectRatioProp = {}
-
-  if (adaptAspectRatio) {
-    if (slidesToShow === 1) {
-      aspectRatioProp = { aspectRatio: 4 }
-    }
-    if (slidesToShow === 2) {
-      aspectRatioProp = { aspectRatio: 2 }
-    }
-    if (slidesToShow > 2) {
-      aspectRatioProp = { aspectRatio: 1 }
-    }
-  }
-
   const { isAdmin } = useAdminContext()
 
   return (
@@ -42,18 +26,18 @@ const ImageCarouselItem: types.Brick<ImageCarouselItemProps> = ({
           propName="titleName"
           value={titleName}
           placeholder="Type a name..."
-          renderBlock={({ children }) => (<h4 className='small-title'>{children}</h4>)}
+          renderBlock={({ children }) => (<h4 className='small-title text-white'>{children}</h4>)}
         />
         <Text
           propName="date"
           value={date}
           placeholder="Type a date..."
-          renderBlock={({ children }) => (<p className="small">{children}</p>)}
+          renderBlock={({ children }) => (<p className="small text-white">{children}</p>)}
         />
         <RichText
           propName='description'
           value={description}
-          renderBlock={({ children }) => <p style={{ padding: "20px 0px" }} className='padding30'>{children}</p>}
+          renderBlock={({ children }) => <p style={{ padding: "20px 0px" }} className='padding30 text-white'>{children}</p>}
           placeholder='Write a description'
           allowedFeatures={[
             types.RichTextFeatures.Bold,
@@ -66,8 +50,7 @@ const ImageCarouselItem: types.Brick<ImageCarouselItemProps> = ({
             propName="image"
             source={image}
             alt={image.alt || "Fallback alt tag"}
-            maxWidth={10}
-            {...aspectRatioProp}
+            maxWidth={100}
           />
         )}
       </div>
@@ -78,7 +61,6 @@ const ImageCarouselItem: types.Brick<ImageCarouselItemProps> = ({
 ImageCarouselItem.schema = {
   name: blockNames.ImageCarouselItem,
   label: 'Image Carousel Item',
-  category: 'hero sections',
   hideFromAddMenu: true,
   getDefaultProps: () => ({
     titleName: 'Default Title',

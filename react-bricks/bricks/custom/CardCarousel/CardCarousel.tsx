@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Repeater, types } from 'react-bricks/frontend'
 import Slider from 'react-slick'
 
-import Container from '../../shared/components/Container'
-import Section from '../../shared/components/Section'
-import blockNames from '../../blockNames'
+import Section from '../../react-bricks-ui/shared/components/Section'
+import blockNames from '../../react-bricks-ui/blockNames'
 import CarouselStyles from './CarouselStyles'
 import {
   containerWidthSideGroupWithFull,
@@ -12,8 +11,8 @@ import {
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
-} from '../../LayoutSideProps'
-import { photos } from '../../shared/defaultImages'
+} from '../../react-bricks-ui/LayoutSideProps'
+import { photos } from '../../react-bricks-ui/shared/defaultImages'
 
 // @ts-ignore
 const SliderComponent = !!Slider.default ? Slider.default : Slider
@@ -50,7 +49,7 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
 }) => {
   const settings = {
     dots: true,
-    arrows: false,
+    arrows: true, // Afficher les flèches de navigation
     infinite: true,
     draggable: true,
     autoplay: !!autoplay,
@@ -79,44 +78,53 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
   }
 
   return (
-    <Section
-      backgroundColor={backgroundColor}
-      borderTop={borderTop}
-      borderBottom={borderBottom}
-    >
-      <Container
-        size={width}
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-      >
-        <CarouselStyles />
-        <style>{`
+    <div style={{ paddingBottom: "100px" }} className='container-content'>
+      <CarouselStyles />
+      <style>{`
           .slick-track {
             display: flex;
             gap: ${gap};
           }
+          /* Stylisation des flèches */
+          .slick-prev,
+          .slick-next {
+            font-size: 0px;
+            line-height: 1;
+            color: #000;
+            z-index: 1; 
+            background-color: #CD4D13;
+    border-radius: 50%;
+    transition :all 0.5s ease-in-out;
+          }
+              .slick-prev:hover,
+          .slick-next:hover {
+            background-color: #EB6428;
+          }
+          .slick-prev {
+            left: -50px; /* Position de la flèche précédente */
+          }
+          .slick-next {
+            right: -50px; /* Position de la flèche suivante */
+          }
         `}</style>
 
-        <SliderComponent {...settings}>
-          {/* @ts-ignore */}
-          {repeaterElement?.props?.children?.map((child, index) => {
-            return (
-              <div key={index} className="p-0 overflow-hidden">
-                {child}
-              </div>
-            )
-          })}
-        </SliderComponent>
-      </Container>
-    </Section>
+      <SliderComponent {...settings}>
+        {/* @ts-ignore */}
+        {repeaterElement?.props?.children?.map((child, index) => {
+          return (
+            <div key={index} className="p-0 overflow-hidden">
+              {child}
+            </div>
+          )
+        })}
+      </SliderComponent>
+    </div>
   )
 }
 
 CarouselBrick.schema = {
-  name: blockNames.ImageCarousel,
+  name: 'Carousel',
   label: 'Image Carousel',
-  category: 'hero sections',
-  tags: ['carousel', 'image carousel', 'slider', 'photo slider'],
   repeaterItems: [
     {
       name: 'images',
@@ -224,23 +232,29 @@ CarouselBrick.schema = {
     gap: '30px',
     images: [
       {
-        titleName: 'Title 1',
-        date: 'Date 1',
-        description: 'Description 1',
-        image: photos.CAROUSEL_MOUNTAINS_1,
+        titleName: 'Jean Alliato',
+        date: 'xx/xx/xxxx',
+        description: 'Lorem ipsum dolor sit amet consectetur. Fringilla pellentesque ut quis in magna. Sit vitae orci dis tincidunt.',
+        image: {
+          src: 'https://assets.reactbricks.com/I9Q1BfsHQDk_MLe/images/master/pflaXiavTL-DH4t.png',
+          alt: 'altText',
+        },
       },
       {
-        titleName: 'Title 2',
-        date: 'Date 2',
-        description: 'Description 2',
-        image: photos.CAROUSEL_MOUNTAINS_2,
+        titleName: 'Jean Alliato',
+        date: 'xx/xx/xxxx',
+        description: 'Lorem ipsum dolor sit amet consectetur. Fringilla pellentesque ut quis in magna. Sit vitae orci dis tincidunt.',
+        image: {
+          src: 'https://assets.reactbricks.com/I9Q1BfsHQDk_MLe/images/master/pflaXiavTL-DH4t.png',
+          alt: 'altText',
+        },
       },
     ],
   }),
   stories: [
     {
       id: '4-slides',
-      name: '4 slides',
+      name: 'Card slider',
       previewImageUrl: `/bricks-preview-images/4-slides.png`,
       showAsBrick: true,
       props: {
@@ -253,28 +267,49 @@ CarouselBrick.schema = {
         width: 'medium',
         images: [
           {
-            titleName: 'Title 1',
-            date: 'Date 1',
-            description: 'Description 1',
-            image: photos.CAROUSEL_SEA_1,
+            titleName: 'Jean Alliato',
+            date: 'xx/xx/xxxx',
+            description: 'Lorem ipsum dolor sit amet consectetur. Fringilla pellentesque ut quis in magna. Sit vitae orci dis tincidunt.',
+            image: {
+              src: 'https://assets.reactbricks.com/I9Q1BfsHQDk_MLe/images/master/pflaXiavTL-DH4t.png',
+              alt: 'altText',
+            },
           },
           {
-            titleName: 'Title 2',
-            date: 'Date 2',
-            description: 'Description 2',
-            image: photos.CAROUSEL_SEA_2,
+            titleName: 'Jean Alliato',
+            date: 'xx/xx/xxxx',
+            description: 'Lorem ipsum dolor sit amet consectetur. Fringilla pellentesque ut quis in magna. Sit vitae orci dis tincidunt.',
+            image: {
+              src: 'https://assets.reactbricks.com/I9Q1BfsHQDk_MLe/images/master/pflaXiavTL-DH4t.png',
+              alt: 'altText',
+            },
           },
           {
-            titleName: 'Title 3',
-            date: 'Date 3',
-            description: 'Description 3',
-            image: photos.CAROUSEL_SEA_3,
+            titleName: 'Jean Alliato',
+            date: 'xx/xx/xxxx',
+            description: 'Lorem ipsum dolor sit amet consectetur. Fringilla pellentesque ut quis in magna. Sit vitae orci dis tincidunt.',
+            image: {
+              src: 'https://assets.reactbricks.com/I9Q1BfsHQDk_MLe/images/master/pflaXiavTL-DH4t.png',
+              alt: 'altText',
+            },
           },
           {
-            titleName: 'Title 4',
-            date: 'Date 4',
-            description: 'Description 4',
-            image: photos.CAROUSEL_SEA_4,
+            titleName: 'Jean Alliato',
+            date: 'xx/xx/xxxx',
+            description: 'Lorem ipsum dolor sit amet consectetur. Fringilla pellentesque ut quis in magna. Sit vitae orci dis tincidunt.',
+            image: {
+              src: 'https://assets.reactbricks.com/I9Q1BfsHQDk_MLe/images/master/pflaXiavTL-DH4t.png',
+              alt: 'altText',
+            },
+          },
+          {
+            titleName: 'Jean Alliato',
+            date: 'xx/xx/xxxx',
+            description: 'Lorem ipsum dolor sit amet consectetur. Fringilla pellentesque ut quis in magna. Sit vitae orci dis tincidunt.',
+            image: {
+              src: 'https://assets.reactbricks.com/I9Q1BfsHQDk_MLe/images/master/pflaXiavTL-DH4t.png',
+              alt: 'altText',
+            },
           },
         ],
       },

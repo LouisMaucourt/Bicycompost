@@ -61,14 +61,14 @@ const Page: React.FC<PageProps> = ({
             <div className="max-w-6xl mx-auto px-8 py-16">
               <div className="flex items-center justify-between  text-gray-900 dark:text-white pb-4 mt-10 sm:mt-12 mb-4">
                 <h1 className="max-w-2xl text-4xl sm:text-6xl lg:text-4xl font-bold tracking-tight">
-                  {filterTag} articles
+                  {filterTag} Blog
                 </h1>
 
                 <Link
                   href="/blog"
                   className="hover:-translate-x-2 transition-transform duration-300"
                 >
-                  &laquo; Return to blog
+                  &laquo; Revenir au blog
                 </Link>
               </div>
 

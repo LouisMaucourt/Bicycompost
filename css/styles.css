@@ -66,14 +66,17 @@ h4 {
 
 h5 {
     font-family: 'Asap', sans-serif;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
         color: var(--green-black);
 }
-
+.small-title{
+    font-size: 1.5rem;
+}
 p {
     font-family: 'General Sans', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--green-black);
+    text-align: left;
 }
 
 small {
@@ -82,11 +85,6 @@ small {
 }
 a p{
 color: var(--grey-100);
-}
-li {
-    list-style-type: disc;
-    margin-left: 20px;
-        color: var(--green-black);
 }
 .very-small {
     font-family: 'General Sans', sans-serif;
@@ -112,7 +110,9 @@ li {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+/* div{
+    width: 100%;
+} */
 body {
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: subpixel-antialiased;
@@ -159,12 +159,34 @@ textarea {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.flexx2{
+    display: flex;
+    flex: 2;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+.flexx2-img{
+        display: flex;
+            flex: 2;
+            flex-direction: row;
+            min-height: 80vh;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+}
 .flex-between{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
 .background-beige {
     background-color: var(--beige-white);
     display: flex;
@@ -172,23 +194,85 @@ textarea {
     justify-content: center;
     gap: 20px;
     padding: 35px;
-    height: 100vh;
+    min-height: 100vh;
 }
 .background-green {
-    background-color: var(--green-dark);
+    background-color: var(--green-black);
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    padding: 35px;
-    height: 100vh;
+    padding: 80px 35px;
+    min-height: 100vh;
 }
 .container-content{
         max-width: 1180px;
         margin: auto;
+        padding: 30px 40px;
+}
+.relative{
+    position: relative;
 }
 
 /* Element */
+.text-white {
+    color: white;
+}
+.color-red{
+color: var(--orange-black);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    text-decoration: underline;
+}
+.form-content{
+    background-color: var(--beige-light);
+    border-radius: 12px 0px 12px 0px;
+    padding: 30px;
+}
+.form-content section{
+    background-color: var(--beige-light);
+}
+.card-item-green {
+    width: 100%;
+    background-color: var(--green-black);
+    border-radius: 0px 12px 0px 12px;
+    padding: 25px;
+}
+.card-item-green-800 {
+    width: 100%;
+    background-color: var(--green-dark);
+    border-radius: 0px 12px 0px 12px;
+    padding: 25px;
+}
+.card-item-green-800 p{
+    color: var(--green-apple);
+}
+.card-item-beige{
+background-color: var(--beige);
+    border-radius: 0px 12px 0px 12px;
+    padding: 25px;
+    width: 100%;
+}
+.card-item-green p,
+h4 {
+    color: white;
+}
+.accordeon-title span {
+    color: white;
+    font-size: 1rem;
+    text-align: left;
+}
+.card-item-green img {
+    margin: auto;
+    width: 100px;
+}
+.width-60 {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
 .margin-h-30{
     margin: 30px 0px;
 }
@@ -203,6 +287,7 @@ textarea {
     color:var(--grey-100);
     padding: 10px 15px;
     border-radius:12px 0px 12px 0px;
+    width: 200px;
 }
 .button-orange:hover {
     background-color: var(--orange-dark);
@@ -214,6 +299,16 @@ background-color: #F48452;
     font-weight: 500;
 }
 
+.homepage-image{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    overflow: hidden;
+    width: 40%  ;
+}
+.faq-img {
+    width: 30rem;
+}
 @media screen and (max-width: 768px) {
 
     .background-beige {

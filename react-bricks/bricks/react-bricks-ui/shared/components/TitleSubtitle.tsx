@@ -22,10 +22,7 @@ const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
         renderBlock={({ children }) => (
           <h2
             className={classNames(
-              'text-2xl leading-7',
               extraboldTitle ? 'font-extrabold' : 'font-bold',
-              textColors.GRAY_900,
-              { 'lg:text-[32px] lg:leading-9 text-center': bigCentered }
             )}
           >
             {children}
@@ -36,15 +33,10 @@ const TitleSubtitle: React.FC<TitleSubtitleProps> = ({
         propName="subtitle"
         placeholder="Subtitle..."
         renderBlock={({ children }) => (
-          <p
-            className={classNames(
-              { 'sm:text-lg leading-7': bigCentered },
-              textColors.GRAY_600,
-              bigCentered ? 'mt-3 text-center' : 'mt-2'
-            )}
+          <h5 style={{ fontWeight: "500" }}
           >
             {children}
-          </p>
+          </h5>
         )}
       />
     </div>

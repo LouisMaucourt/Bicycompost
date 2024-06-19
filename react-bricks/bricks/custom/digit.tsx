@@ -11,7 +11,7 @@ interface digitProps {
     numberFour: types.TextValue
     descriptionOne: types.TextValue
     descriptionTwo: types.TextValue
-    descriptionthree: types.TextValue
+    descriptionThree: types.TextValue
     descriptionFour: types.TextValue
 }
 
@@ -23,69 +23,68 @@ const digit: types.Brick<digitProps> = ({ title, numberOne, numberTwo, numberThr
                     propName="title"
                     value={title}
                     placeholder="Type a title..."
-                    renderBlock={({ children }) => (<h1>{children}</h1>)}
+                    renderBlock={({ children }) => (<h1 style={{ fontSize: "3.5rem", marginBottom: "30px" }} className='text-white'>{children}</h1>)}
                 />
                 <div className='gridx2'>
                     <div className='flex-between'>
                         <div>
                             <Text
-                                propName="digit"
+                                propName="numberOne"
                                 value={numberOne}
                                 placeholder="Type a digit..."
-                                renderBlock={({ children }) => (<h2>{children}</h2>)}
+                                renderBlock={({ children }) => (<h2 className='text-white'>{children}</h2>)}
                             />
                             <RichText
-                                propName='description'
+                                propName='descriptionOne'
                                 value={descriptionOne}
-                                renderBlock={({ children }) => <p>{children}</p>}
+                                renderBlock={({ children }) => <p className='text-white'>{children}</p>}
                                 placeholder='Description...'
                                 allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Italic]}
                             />
                         </div>
                         <div>
                             <Text
-                                propName="digit"
+                                propName="numberTwo"
                                 value={numberTwo}
                                 placeholder="Type a digit..."
-                                renderBlock={({ children }) => (<h2>{children}</h2>)}
+                                renderBlock={({ children }) => (<h2 className='text-white'>{children}</h2>)}
                             />
                             <RichText
-                                propName='description'
+                                propName='descriptionTwo'
                                 value={descriptionTwo}
-                                renderBlock={({ children }) => <p>{children}</p>}
+                                renderBlock={({ children }) => <p className='text-white'>{children}</p>}
                                 placeholder='Description...'
                                 allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Italic]}
                             />
                         </div>
-
                     </div>
-                    <div className='flex-between'>
+                    <div style={{ borderLeft: "1px solid white", paddingLeft: "50px" }} className='flex-between '>
                         <div>
                             <Text
-                                propName="digit"
+                                propName="numberThree"
                                 value={numberThree}
                                 placeholder="Type a digit..."
-                                renderBlock={({ children }) => (<h2>{children}</h2>)}
+                                renderBlock={({ children }) => (<h2 className='text-white'>{children}</h2>)}
                             />
                             <RichText
-                                propName='description'
+                                propName='descriptionThree'
                                 value={descriptionThree}
-                                renderBlock={({ children }) => <p>{children}</p>}
+                                renderBlock={({ children }) => <p className='text-white'>{children}</p>}
                                 placeholder='Description...'
                                 allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Italic]}
                             />
                         </div>
                         <div>
                             <Text
-                                propName="digit"
+                                propName="numberFour"
                                 value={numberFour}
                                 placeholder="Type a digit..."
-                                renderBlock={({ children }) => (<h2>{children}</h2>)}
+                                renderBlock={({ children }) => (<h2 className='text-white'>{children}</h2>)}
                             />
                             <RichText
-                                propName='description'
+                                propName='descriptionFour'
                                 value={descriptionFour}
-                                renderBlock={({ children }) => <p>{children}</p>}
+                                renderBlock={({ children }) => <p className='text-white'>{children}</p>}
                                 placeholder='Description...'
                                 allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Italic]}
                             />
@@ -99,13 +98,9 @@ const digit: types.Brick<digitProps> = ({ title, numberOne, numberTwo, numberThr
 
 digit.schema = {
     // Unique brick name
-    name: 'digit',
+    name: 'Digit',
     label: 'digit',
 
-    // Defaults when a new brick is added
-
-
-    // Sidebar Edit controls for props
     sideEditProps: [],
 }
 

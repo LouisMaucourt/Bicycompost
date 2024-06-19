@@ -1,34 +1,31 @@
-import React from 'react'
-import { types, Text, Link } from 'react-bricks/frontend'
+import React from 'react';
+import { types, Text, Link } from 'react-bricks/frontend';
 import classNames from 'classnames';
 
 interface ButtonProps {
-    buttontext: types.TextValue
-    buttonPath: string
+    buttontext: types.TextValue;
+    buttonPath: string;
 }
 
 const Button: types.Brick<ButtonProps> = ({ buttontext, buttonPath }) => {
     return (
         <Link href={buttonPath} className='button-orange'>
             <Text
-                propName="title"
-                value={buttontext}
-                placeholder="Action"
+                propName="buttontext" // Utilisez "buttontext" comme propName
+                value={buttontext} // Passer buttontext comme valeur
+                placeholder="Votre texte ici"
                 renderBlock={({ children }) => (<p className='inline'>{children}</p>)}
             />
         </Link>
-    )
-}
+    );
+};
 
 Button.schema = {
     name: 'c-button',
     label: 'Button',
-
     getDefaultProps: () => ({
-        buttontext: 'Thick as a brick',
+        buttontext: 'Votre text', // Définir un texte par défaut ici
     }),
-
-    // Sidebar Edit controls for props
     sideEditProps: [
         {
             name: 'buttonPath',
@@ -38,8 +35,8 @@ Button.schema = {
                 value?.startsWith('/') ||
                 value?.startsWith('https://') ||
                 'Please, enter a valid URL',
-        }
+        },
     ],
-}
+};
 
-export default Button
+export default Button;

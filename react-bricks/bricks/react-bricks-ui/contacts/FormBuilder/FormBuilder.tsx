@@ -31,7 +31,7 @@ const FormBuilder: types.Brick<FormBuilderProps> = ({
     formState: { errors },
   } = useForm()
 
-  const onSubmit = () => {}
+  const onSubmit = () => { }
 
   return (
     <div>
@@ -196,7 +196,7 @@ FormBuilder.schema = {
         type: 'button',
         buttonType: 'submit',
         buttonColor: buttonColors.SKY.value,
-        text: 'Send',
+        text: 'Envoyer',
         variant: 'solid',
       },
     ],
