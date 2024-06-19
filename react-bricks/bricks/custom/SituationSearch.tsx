@@ -11,7 +11,6 @@ import Container from '../react-bricks-ui/shared/components/Container'
 import { buttonColors } from '../react-bricks-ui/colors'
 import { useState } from 'react'
 import SubmitButton from '../custom/button/SubmitButton'
-import Button from './button/Button'
 import Spacer from '../react-bricks-ui/separators/Spacer/Spacer'
 import HorizontalRule from '../react-bricks-ui/separators/HorizontalRule/HorizontalRule'
 
@@ -29,7 +28,6 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
   title,
 }) => {
   const [searchResult, setSearchResult] = useState('')
-
   const [gasQuantity, setGasQuantity] = useState(0)
   const [compostQuantity, setCompostQuantity] = useState(0)
   const [deliveryQuantity, setDeliveryQuantity] = useState(0)
