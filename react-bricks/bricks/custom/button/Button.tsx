@@ -25,7 +25,7 @@ const Button: types.Brick<ButtonProps> = ({
         propName={propName}
         value={buttonText}
         placeholder="Action"
-        renderBlock={({ children }) => <p className="inline">{children}</p>}
+        renderBlock={({ children }) => <p className="inline p-button">{children}</p>}
       />
     </Link>
   )

@@ -23,12 +23,6 @@ export interface MapProps extends LayoutProps {
   lng: string
 }
 
-// const mapTilerProvider = (x: number, y: number, z: number, dpr?: number) => {
-//   return `https://api.maptiler.com/maps/${MAP_ID}/256/${z}/${x}/${y}${
-//     dpr && dpr >= 2 ? '@2x' : ''
-//   }.png?key=${MAPTILER_ACCESS_TOKEN}`
-// }
-
 export const MapBrick: types.Brick<MapProps> = ({
   backgroundColor,
   borderTop,
@@ -47,8 +41,17 @@ export const MapBrick: types.Brick<MapProps> = ({
     }
   }
   return (
-    <Section backgroundColor={backgroundColor} borderTop={borderTop} borderBottom={borderBottom}>
-      <Container size={width} paddingTop={paddingTop} paddingBottom={paddingBottom}>
+    <Section
+      backgroundColor={backgroundColor}
+      borderTop={borderTop}
+      borderBottom={borderBottom}
+    >
+      <Container
+        size={width}
+        paddingTop={paddingTop}
+        paddingBottom={paddingBottom}
+      >
+
         <Map
           center={[parseFloat(lat), parseFloat(lng)]}
           height={350}
@@ -58,7 +61,6 @@ export const MapBrick: types.Brick<MapProps> = ({
           dprs={[1, 2]}
           metaWheelZoomWarning="Use ctrl + wheel to zoom!"
           attribution={false}
-          //attributionPrefix=""
         >
           <Marker anchor={[parseFloat(lat), parseFloat(lng)]} />
         </Map>
@@ -111,8 +113,9 @@ MapBrick.schema = {
             if (!MAPTILER_ACCESS_TOKEN) {
               return (
                 <p className="text-sm">
-                  For better maps, please create a MapTiler free account and set the{' '}
-                  <code className="text-xs">MAPTILER_ACCESS_TOKEN</code> string.
+                  For better maps, please create a MapTiler free account and set
+                  the <code className="text-xs">MAPTILER_ACCESS_TOKEN</code>{' '}
+                  string.
                 </p>
               )
             }

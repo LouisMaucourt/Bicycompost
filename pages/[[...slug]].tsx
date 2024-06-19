@@ -16,6 +16,7 @@ import ErrorNoHeader from '../components/errorNoHeader'
 import ErrorNoKeys from '../components/errorNoKeys'
 import Layout from '../components/layout'
 import config from '../react-bricks/config'
+import Script from 'next/script'
 
 interface PageProps {
   page: types.Page
@@ -58,6 +59,7 @@ const Page: React.FC<PageProps> = ({
               rel="stylesheet"
               href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
             />{' '}
+            <Script src="file:///Users/o.linstrumelle/Downloads/France-free/cmap/france-map.js" />
           </Head>
           {headerOk && !errorHeader ? (
             <PageViewer page={headerOk} />
