@@ -398,6 +398,14 @@ h5 p{
     width: 35rem;
 }
 
+.left-image {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+    width: 25rem;
+}
+
 .faq-img {
     width: 30rem;
 }
