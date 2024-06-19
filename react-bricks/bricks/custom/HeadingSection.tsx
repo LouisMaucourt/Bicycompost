@@ -7,7 +7,7 @@ interface HeadingSectionProps {
     titleNbAdvice: types.TextValue;
     imageStar: types.IImageSource;
     description: types.RichTextFeatures
-    button: types.RichTextFeatures;
+    buttons: types.RichTextFeatures;
     style: number;
     href: string;
     target?: string;
@@ -15,7 +15,7 @@ interface HeadingSectionProps {
     className?: string;
 }
 
-const HeadingSection: types.Brick<HeadingSectionProps> = ({ title, titleGoogle, imageStar, titleNbAdvice, button }) => {
+const HeadingSection: types.Brick<HeadingSectionProps> = ({ title, titleGoogle, imageStar, titleNbAdvice, buttons }) => {
     return (
         <section style={{ paddingTop: "100px" }} className="container-content">
             <Text
@@ -51,7 +51,7 @@ const HeadingSection: types.Brick<HeadingSectionProps> = ({ title, titleGoogle, 
                     <div className="flex justify-between items-center mt-4">
                         < RichText
                             propName='description'
-                            value={button}
+                            value={buttons}
                             renderBlock={({ children }) => <p style={{ width: "80px", color: "orange" }}>{children}</p>}
                             placeholder='Écrire une description'
                             allowedFeatures={[
@@ -69,14 +69,12 @@ const HeadingSection: types.Brick<HeadingSectionProps> = ({ title, titleGoogle, 
 };
 
 HeadingSection.schema = {
+    // Unique brick name
     name: 'HeadingSection',
-    label: 'Heading Section',
-    repeaterItems: [{
-        name: 'buttons',
-        itemType: 'c-button'
-    }],
-    // Define any sideEditProps if needed
+    label: 'HeadingSection',
+
     sideEditProps: [],
-};
+}
+
 
 export default HeadingSection;

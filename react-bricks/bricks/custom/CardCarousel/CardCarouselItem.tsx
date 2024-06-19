@@ -2,7 +2,7 @@ import React from 'react'
 import { types, Text, RichText, Image, useAdminContext } from 'react-bricks/frontend'
 import blockNames from '../../react-bricks-ui/blockNames'
 
-interface ImageCarouselItemProps {
+interface CardCarouselItemProps {
   adaptAspectRatio: boolean
   slidesToShow: number
   titleName: types.TextValue
@@ -11,7 +11,7 @@ interface ImageCarouselItemProps {
   image: types.IImageSource
 }
 
-const ImageCarouselItem: types.Brick<ImageCarouselItemProps> = ({
+const CardCarouselItem: types.Brick<CardCarouselItemProps> = ({
   titleName,
   date,
   description,
@@ -20,47 +20,35 @@ const ImageCarouselItem: types.Brick<ImageCarouselItemProps> = ({
   const { isAdmin } = useAdminContext()
 
   return (
-    <div className={`${isAdmin && 'p-6 m-2 hover:bg-gray-100'}`}>
-      <div className='card-item-green'>
+    <div className={`${isAdmin && 'p-6 m-2 hover:bg-gray-100 container-content'}`}>
+      <div className='card-item-beige '>
+        <Image
+          propName="image"
+          source={image}
+          alt="Fallback alt tag"
+          maxWidth={100}
+        />
         <Text
           propName="titleName"
           value={titleName}
           placeholder="Type a name..."
-          renderBlock={({ children }) => (<h4 className='small-title text-white'>{children}</h4>)}
+          renderBlock={({ children }) => (<h4 style={{ color: "#CD4D13" }} className='small-title text-white'>{children}</h4>)}
         />
         <Text
           propName="date"
           value={date}
           placeholder="Type a date..."
-          renderBlock={({ children }) => (<p className="small text-white">{children}</p>)}
+          renderBlock={({ children }) => (<p style={{}} className="small">{children}</p>)}
         />
-        <RichText
-          propName='description'
-          value={description}
-          renderBlock={({ children }) => <p style={{ padding: "20px 0px" }} className='padding30 text-white'>{children}</p>}
-          placeholder='Write a description'
-          allowedFeatures={[
-            types.RichTextFeatures.Bold,
-            types.RichTextFeatures.Highlight,
-            types.RichTextFeatures.Link,
-          ]}
-        />
-        {image && (
-          <Image
-            propName="image"
-            source={image}
-            alt={image.alt || "Fallback alt tag"}
-            maxWidth={100}
-          />
-        )}
+
       </div>
     </div>
   )
 }
 
-ImageCarouselItem.schema = {
-  name: blockNames.ImageCarouselItem,
-  label: 'Image Carousel Item',
+CardCarouselItem.schema = {
+  name: blockNames.BlogCarouselItem,
+  label: 'Blog Carousel Item',
   hideFromAddMenu: true,
   getDefaultProps: () => ({
     titleName: 'Default Title',
@@ -73,4 +61,4 @@ ImageCarouselItem.schema = {
   }),
 }
 
-export default ImageCarouselItem
+export default CardCarouselItem

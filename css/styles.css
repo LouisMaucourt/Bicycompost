@@ -214,7 +214,12 @@ textarea {
             justify-content: space-between;
             gap: 30px;
 }
-
+#blog img{
+    height: 150px;
+}
+#blog h4, p span {
+    color: var(--green-black);
+}
 .flex-between {
     display: flex;
     flex-direction: column;
@@ -250,6 +255,9 @@ textarea {
 }
 
 /* BUTTON */
+.btn-text-image{
+    max-width: 230px;
+}
 .text-white {
     color: white;
 }
@@ -316,7 +324,17 @@ h4 {
     font-size: 1.2rem;
     font-family: 'Asap', sans-serif;
 }
+.homepage-image {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    overflow: hidden;
+    width: 25rem;
+}
 
+.faq-img {
+    width: 30rem;
+}
 .button-orange {
     background-color: var(--orange-black);
     font-size: 1.5rem;

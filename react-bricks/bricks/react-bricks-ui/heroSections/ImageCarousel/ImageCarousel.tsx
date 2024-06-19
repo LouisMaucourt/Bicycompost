@@ -50,7 +50,7 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
 }) => {
   const settings = {
     dots: true,
-    arrows: false,
+    arrows: true,
     infinite: true,
     draggable: true,
     autoplay: !!autoplay,
@@ -265,10 +265,11 @@ CarouselBrick.schema = {
             image: photos.CAROUSEL_SEA_2,
           },
           {
+            image: photos.CAROUSEL_SEA_3,
             titleName: 'Title 3',
             date: 'Date 3',
             description: 'Description 3',
-            image: photos.CAROUSEL_SEA_3,
+
           },
           {
             titleName: 'Title 4',

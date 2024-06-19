@@ -1,26 +1,25 @@
 import { types, Text, RichText, Image, Repeater } from 'react-bricks/frontend'
-import { textColors, bgColors } from '../react-bricks-ui/colors';
+import Button from './button/Button'
 
-
-interface textImageProps {
+interface TextImageProps {
     title: types.TextValue
     description: types.TextValue
     buttons: types.RepeaterItems
     image: types.IImageSource
 }
 
-const TextImage: types.Brick<textImageProps> = ({ title, image, description, buttons }) => {
+const TextImage: types.Brick<TextImageProps> = ({ title, image, description, buttons }) => {
     return (
         <section className='fullscreen relative'>
             <div style={{ height: "80vh" }} className="flexx2 container-content">
                 <div className='width-60'>
                     <Text
-                        propName="text"
+                        propName="title"
                         value={title}
                         renderBlock={({ children }) => <h1 style={{ lineHeight: '4rem' }}>{children}</h1>}
                         placeholder="Titre"
                     />
-                    < RichText
+                    <RichText
                         propName='description'
                         value={description}
                         renderBlock={({ children }) => <p>{children}</p>}
@@ -31,7 +30,7 @@ const TextImage: types.Brick<textImageProps> = ({ title, image, description, but
                             types.RichTextFeatures.Link,
                         ]}
                     />
-                    <Repeater propName='buttons' items={buttons}></Repeater>
+                    <Button propName='button' buttonStyle='button-orange default btn-text-image' buttonText='coucu' buttonPath='/' />
                 </div>
 
                 <div>
@@ -53,11 +52,13 @@ TextImage.schema = {
     label: 'Text Image',
     getDefaultProps: () => ({
         title: `C'est un titre`,
+        description: 'Ceci est une description.',
+        buttons: [],
+        image: {
+            src: 'https://via.placeholder.com/600',
+            alt: 'Placeholder image'
+        }
     }),
-    repeaterItems: [{
-        name: 'buttons',
-        itemType: 'c-button'
-    }],
 }
 
 export default TextImage

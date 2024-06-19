@@ -8,14 +8,14 @@ import TextList from './custom/TextList';
 import Button from './custom/button/Button';
 
 import reactBricksUITheme from './react-bricks-ui';
-import BarreRecherche from './custom/BarreRecherche';
+// import BarreRecherche from './custom/BarreRecherche';
+import SituationSearch from './custom/SituationSearch';
 import Digit from './custom/Digit';
 import Accordion from './custom/AccordionFaq';
 import HeadingSection from './custom/HeadingSection';
 import CardCarousel from './custom/CardCarousel/CardCarousel';
-import BlogCarousel from './custom/BlogCarousel/CardCarousel';
+import BlogCarousel from './custom/BlogCarousel/BlogCarousel';
 import Contact from './custom/Contact';
-import TextSlider from './custom/TextSlider/TextSlider';
 // import MultiStepForm from './custom/MultiStepForm/pageMultiStep';
 
 
@@ -39,13 +39,9 @@ const bricks: types.Theme[] = [
           BlogCarousel,
           HeadingSection,
           Contact,
-          TextSlider
+          SituationSearch,
           // MultiStepForm
         ],
-      },
-      {
-        categoryName: 'Forms',
-        bricks: [BarreRecherche],
       },
     ],
   },

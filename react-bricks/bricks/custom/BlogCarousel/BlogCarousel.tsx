@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Repeater, types, Text } from 'react-bricks/frontend'
+import { Repeater, types } from 'react-bricks/frontend'
 import Slider from 'react-slick'
 
 import Section from '../../react-bricks-ui/shared/components/Section'
@@ -13,8 +13,7 @@ import {
   sectionDefaults,
 } from '../../react-bricks-ui/LayoutSideProps'
 import { photos } from '../../react-bricks-ui/shared/defaultImages'
-import CardCarouselItem from './CardCarouselItem'
-import Button from '../button/Button'
+import BlogCarouselItem from './BlogCarouselItem'
 
 // @ts-ignore
 const SliderComponent = !!Slider.default ? Slider.default : Slider
@@ -26,7 +25,6 @@ interface ImageCarouselProps extends LayoutProps {
   autoplay: boolean
   speed: string
   className: string
-  title: types.TextValue
   gap: string
   images: {
     titleName: types.TextValue
@@ -49,7 +47,6 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
   autoplay,
   speed,
   gap,
-  title
 }) => {
   const settings = {
     dots: true,
@@ -82,17 +79,7 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
   }
 
   return (
-    <div style={{ paddingBottom: "100px" }} id='blog' className='container-content'>
-      <div className='flex-between' style={{ flexDirection: "row" }}>
-        <Text
-          propName="title"
-          value={title}
-          renderBlock={({ children }) => <h3>{children}</h3>}
-          placeholder="Titre"
-        />
-        <Button propName='button' buttonStyle='button-orange default btn-text-image' buttonText='coucu' buttonPath='/' />
-      </div>
-
+    <div style={{ paddingBottom: "100px" }} className='container-content'>
       <CarouselStyles />
       <style>{`
           .slick-track {
@@ -127,7 +114,7 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
         {repeaterElement?.props?.children?.map((child, index) => {
           return (
             <div key={index} className="p-0 overflow-hidden">
-              <CardCarouselItem slidesToShow={0} slidertext={''} image={undefined} />
+              <BlogCarouselItem adaptAspectRatio={false} slidesToShow={0} titleName={''} date={''} description={''} image={undefined}></BlogCarouselItem>
             </div>
           )
         })}
@@ -138,7 +125,7 @@ const CarouselBrick: types.Brick<ImageCarouselProps> = ({
 
 CarouselBrick.schema = {
   name: 'Carousel',
-  label: 'Card Carousel',
+  label: 'Blog Carousel',
   repeaterItems: [
     {
       name: 'images',

@@ -78,6 +78,7 @@ enum blockNames {
   BlogCarouselItem = "BlogCarouselItem",
   TextCarouselItem = "TextCarouselItem",
   TextSliderItem = "TextSliderItem",
+  CardCarouselItem = "CardCarouselItem",
 }
 
 export default blockNames

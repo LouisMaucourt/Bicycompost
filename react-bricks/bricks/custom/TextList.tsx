@@ -2,6 +2,7 @@ import { types, Text, Image, RichText, Repeater } from 'react-bricks/frontend'
 import Section from "../react-bricks-ui/shared/components/Section";
 import Container from "../react-bricks-ui/shared/components/Container";
 import React from 'react';
+import Button from './button/Button';
 
 interface textImageProps {
     image: types.IImageSource
@@ -60,7 +61,7 @@ const TextImage: types.Brick<textImageProps> = ({ title, titleText, description,
                             allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Italic]}
                         />
                         <div className='margin-h-30'>
-                            <Repeater propName='buttons' items={buttons}></Repeater>
+                            <Button propName='button' buttonStyle='button-orange default btn-text-image' buttonText='coucu' buttonPath='/' />
                         </div>
                     </div>
 
@@ -140,11 +141,13 @@ TextImage.schema = {
     label: 'Texte Liste',
     getDefaultProps: () => ({
         title: `C'est un titre`,
+        description: 'Ceci est une description.',
+        buttons: [],
+        image: {
+            src: 'https://via.placeholder.com/600',
+            alt: 'Placeholder image'
+        }
     }),
-    repeaterItems: [{
-        name: 'buttons',
-        itemType: 'c-button'
-    }],
 }
 
 export default TextImage
