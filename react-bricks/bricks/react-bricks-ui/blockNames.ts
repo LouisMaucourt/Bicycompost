@@ -75,10 +75,11 @@ enum blockNames {
   ContactsForm = 'contact-form',
   BlogTitle = 'blog-title',
   SituationSearch = 'situation-search',
-  BlogCarouselItem = "BlogCarouselItem",
-  TextCarouselItem = "TextCarouselItem",
-  TextSliderItem = "TextSliderItem",
-  CardCarouselItem = "CardCarouselItem",
+  BlogCarouselItem = 'BlogCarouselItem',
+  TextCarouselItem = 'TextCarouselItem',
+  TextSliderItem = 'TextSliderItem',
+  CardCarouselItem = 'CardCarouselItem',
+  InteractiveMap = 'interactive-map',
 }
 
 export default blockNames

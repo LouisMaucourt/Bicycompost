@@ -190,7 +190,7 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
                       alt="Icon"
                       imageClassName="size-20 content-center"
                     />
-                    <div className="flex-col">
+                    <div className="flex-col min-w-80">
                       <Text
                         propName="middleSection-text"
                         value="Title"
@@ -283,7 +283,7 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
                 <div className="bg-beige-light p-6 rounded-lg flex items-center space-x-4 text-block min-w-80">
                   <div className="flex gap-5">
                     <Image
-                      propName="leftSection-icon"
+                      propName="leftSectionSimulator-icon"
                       alt="Icon"
                       imageClassName="size-20 content-center"
                     />
@@ -307,7 +307,7 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
                 <div className="bg-beige-light p-6 rounded-lg flex items-center space-x-4 text-block">
                   <div className="flex min-w-80">
                     <Image
-                      propName="middleSection-icon"
+                      propName="middleSectionSimulator-icon"
                       alt="Icon"
                       imageClassName="size-20 content-center"
                     />
@@ -331,7 +331,7 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
                 <div className="bg-beige-light p-6 rounded-lg flex items-center space-x-4 text-block">
                   <div className="flex min-w-80">
                     <Image
-                      propName="rightSection-icon"
+                      propName="rightSectionSimulator-icon"
                       alt="Icon"
                       imageClassName="size-20 content-center"
                     />
@@ -367,15 +367,6 @@ const SituationSearch: types.Brick<FormBuilderProps> = ({
             paddingTop={'0'}
             paddingBottom={'0'}
           />
-
-          {searchResult === 'petite-entreprise' ? (
-            <Button
-              propName="button"
-              buttonText={''}
-              buttonStyle={'button-orange default button-text'}
-              buttonPath={''}
-            />
-          ) : null}
 
           {searchResult === 'petite-entreprise' ? (
             <button className="button-orange default button-text">
