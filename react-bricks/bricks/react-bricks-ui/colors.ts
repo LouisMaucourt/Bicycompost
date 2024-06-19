@@ -117,6 +117,9 @@ export const textColors = {
   GRAY_600: 'text-gray-600 dark:text-white',
   GRAY_500: 'text-gray-500 dark:text-white',
   GRAY_400: 'text-gray-400 dark:text-gray-100',
+  GREEN_BLACK: 'green-black',
+  BEIGE_LIGHT: 'beige-light',
+  BEIGE_WHITE: 'beige-white',
 } as const satisfies Record<string, string>
 
 //====================
@@ -276,6 +279,29 @@ export const bgColors = {
       className: 'bg-rose-100 dark:bg-gray-900',
     },
   },
+  GREEN_BLACK: {
+    label: 'Green Black',
+    value: {
+      color: '#2E4F3B',
+      className: 'bg-green-black',
+    },
+  },
+
+  BEIGE_LIGHT: {
+    label: 'Beige Light',
+    value: {
+      color: '#F8ECDE',
+      className: 'bg-beige-light',
+    },
+  },
+
+  BEIGE_WHITE: {
+    label: 'Beige White',
+    value: {
+      color: '#FCF8F2',
+      className: 'bg-beige-white',
+    },
+  },
 } as const satisfies Colors
 
 //====================
@@ -406,6 +432,29 @@ export const highlightTextColors = {
     value: {
       color: tailwindColors.ROSE.color500,
       className: 'text-rose-500 dark:text-rose-400',
+    },
+  },
+  GREEN_BLACK: {
+    label: 'Green Black',
+    value: {
+      color: '#2E4F3B',
+      className: 'green-black',
+    },
+  },
+
+  BEIGE_LIGHT: {
+    label: 'Beige Light',
+    value: {
+      color: '#F8ECDE',
+      className: 'beige-light',
+    },
+  },
+
+  BEIGE_WHITE: {
+    label: 'Beige White',
+    value: {
+      color: '#FCF8F2',
+      className: 'beige-white',
     },
   },
 } as const satisfies Colors

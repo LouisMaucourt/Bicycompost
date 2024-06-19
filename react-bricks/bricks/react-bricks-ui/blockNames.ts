@@ -74,7 +74,7 @@ enum blockNames {
   Office = 'contact-office',
   ContactsForm = 'contact-form',
   BlogTitle = 'blog-title',
-  BarreRecherche = 'barre-recherche',
+  SituationSearch = 'situation-search',
   BlogCarouselItem = "BlogCarouselItem",
   TextCarouselItem = "TextCarouselItem",
   TextSliderItem = "TextSliderItem",

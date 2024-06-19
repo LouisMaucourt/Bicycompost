@@ -1,8 +1,5 @@
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
-
-
-
 import ReactBricksApp from '../components/ReactBricksApp'
 
 import '../css/styles.css'
