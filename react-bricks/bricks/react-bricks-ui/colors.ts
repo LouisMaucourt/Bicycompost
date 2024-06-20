@@ -787,6 +787,16 @@ export const buttonColors = {
       classNameGhost: 'text-rose-600 dark:text-white',
     },
   },
+    WHITE: {
+    label: tailwindColors.WHITE.label,
+    value: {
+      color: tailwindColors.WHITE.color500,
+      classNameSolid: 'bg-white-500 text-white hover:bg-white-600',
+      classNameOutline:
+        'border border-white-600 text-white-600 dark:border-white dark:text-white',
+      classNameGhost: 'text-rose-600 dark:text-white',
+    },
+  },
 } as const satisfies ButtonColors
 
 //====================

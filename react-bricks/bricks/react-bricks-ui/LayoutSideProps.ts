@@ -291,6 +291,7 @@ export const buttonColorsEditProps = {
       buttonColors.FUCHSIA,
       buttonColors.PINK,
       buttonColors.ROSE,
+      buttonColors.WHITE,
     ],
   },
 }
