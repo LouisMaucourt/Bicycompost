@@ -241,7 +241,6 @@ textarea {
 .flex-right {
     justify-content: flex-start;
 }
-
 .flexx2 {
     display: flex;
     flex: 2;
@@ -265,10 +264,6 @@ textarea {
     height: 150px;
 }
 
-#blog h4,
-p span {
-    color: var(--green-black);
-}
 
 .flex-between {
     display: flex;
@@ -295,13 +290,18 @@ p span {
     padding: 80px 35px;
     min-height: 100vh;
 }
-
+.background-green span{
+color: white;
+}
 .container-content {
     max-width: 1180px;
     margin: auto;
     padding: 70px 40px;
 }
-
+.bg-white{
+    padding-top: 50px;
+    background-color: var(--grey-100);
+}
 .relative {
     position: relative;
 }
@@ -379,7 +379,12 @@ p {
 h4 {
     color: white;
 }
-
+.image-50{
+    width: 50%;
+}
+.image-20 {
+    width: 20px;
+}
 .accordeon-title span {
     color: white;
     font-size: 1rem;
@@ -398,12 +403,9 @@ h4 {
     gap: 30px;
 }
 
+
 .margin-h-30 {
     margin: 30px 0px;
-}
-
-h5 p {
-    width: 100px !important;
 }
 
 .button-text {
@@ -444,6 +446,7 @@ h5 p {
 
 .button-orange {
     background-color: var(--orange-black);
+    border-radius: 12px 0px 12px 0px;
     font-size: 1.5rem;
     display: inline-flex;
     justify-content: center;
@@ -452,6 +455,48 @@ h5 p {
     padding: 1.5rem;
     height: 3.25rem;
     gap: 0.25rem;
+}
+
+.button-orange_border {
+    border: 1px solid var(--orange-black);
+        border-radius: 12px 0px 12px 0px;
+    font-size: 1.5rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--orange-black);
+    padding: 1.5rem;
+    height: 3.25rem;
+    gap: 0.25rem;
+}
+.width-250{
+    width: 250px;
+}
+.width-400 {
+    width: 400px;
+}
+.flex-center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 50px;
+    
+}
+.button-orange_border:hover {
+    background-color:var(--orange-black);
+
+    color: var(--grey-100);
+}
+.no-select-btn{
+        font-size: 1.5rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--orange-dark);
+            border: 1px solid var(--orange-dark);
+            padding: 1.5rem;
+            height: 3.25rem;
+            gap: 0.25rem;
 }
 
 .border-radius {
