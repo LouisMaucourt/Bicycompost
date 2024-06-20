@@ -4,6 +4,7 @@ import blockNames from '../blockNames'
 import { bgColors, textColors } from '../colors'
 import {
   LayoutProps,
+  backgroundSideGroup,
   neutralBackgroundSideGroup,
   paddingBordersSideGroup,
   sectionDefaults,
@@ -45,24 +46,6 @@ const Footer: types.Brick<FooterProps> = ({
                 imageClassName="w-48 h-7 object-contain object-left"
               />
             </Link>
-            <RichText
-              propName="copyright"
-              placeholder="Copyright notice"
-              renderBlock={({ children }) => (
-                <p className={`text-sm ${textColors.GRAY_500}`}>{children}</p>
-              )}
-              allowedFeatures={[types.RichTextFeatures.Link]}
-              renderLink={({ children, href, target, rel }) => (
-                <Link
-                  href={href}
-                  target={target}
-                  rel={rel}
-                  className="text-sky-500 hover:text-sky-600 hover:-translate-y-px transition-all ease-out duration-150"
-                >
-                  {children}
-                </Link>
-              )}
-            />
           </div>
           <Repeater propName="columns" />
         </Container>
@@ -92,24 +75,6 @@ Footer.schema = {
     borderTop: 'full',
     logo: logos.REACT_BRICKS,
     siteUrl: '',
-    copyright: [
-      {
-        type: 'paragraph',
-        children: [
-          {
-            text: 'Visual editing CMS for React.',
-          },
-        ],
-      },
-      {
-        type: 'paragraph',
-        children: [
-          {
-            text: 'Proudly made in Italy',
-          },
-        ],
-      },
-    ],
     columns: [
       {
         title: 'Company',
@@ -195,7 +160,7 @@ Footer.schema = {
   }),
 
   // Sidebar Edit controls for props
-  sideEditProps: [neutralBackgroundSideGroup, paddingBordersSideGroup],
+  sideEditProps: [neutralBackgroundSideGroup, paddingBordersSideGroup, backgroundSideGroup],
 }
 
 export default Footer

@@ -21,6 +21,7 @@ import Section from '../shared/components/Section'
 import useOnClickOutside from './useClickOutside'
 import { ButtonProps } from '../shared/bricks/Button'
 import { MenuItems } from './HeaderMenuItem'
+import Button from '../../custom/button/Button'
 
 interface HeaderProps extends LayoutProps {
   menuItems: MenuItems[]
@@ -45,8 +46,8 @@ const Header: types.Brick<HeaderProps> = ({
       ? 'dark'
       : 'light'
     : typeof window === 'undefined'
-      ? ''
-      : localStorage.getItem('color-mode')
+    ? ''
+    : localStorage.getItem('color-mode')
 
   useEffect(() => {
     setMounted(true)
@@ -71,7 +72,7 @@ const Header: types.Brick<HeaderProps> = ({
             propName="logo"
             alt="Logo"
             maxWidth={300}
-            imageClassName="block w-32 h-7 object-contain object-left"
+            imageClassName="block w-56 object-contain object-left"
           />
         </Link>
         <div className="hidden lg:flex items-center space-x-2">
@@ -80,7 +81,21 @@ const Header: types.Brick<HeaderProps> = ({
             itemProps={{ mobileRef: ref, setMobileMenuOpen }}
           />
         </div>
-        <div className="hidden lg:block ml-auto">
+        <div className="flex-row ml-auto">
+          <a href="/contact">
+            <button className="flex flex-row space-x-5 items-center justify-end button-beige default">
+              Nous contacter
+            </button>
+          </a>
+          <a href="#" className="flex flex-row space-x-5 items-center justify-end button-beige round">
+            <button>
+              <img
+                src="https://assets.reactbricks.com/I9Q1BfsHQDk_MLe/images/master/goAM0n0_mFi5VGz.svg"
+                alt=""
+                className="h-5 w-6"
+              />
+            </button>
+          </a>
           <Repeater
             propName="buttons"
             // No local link to avoid prefetching
