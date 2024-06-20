@@ -42,7 +42,7 @@ const AccordionFaq: types.Brick<AccordionProps> = ({
     backgroundColor,
 }) => {
     return (
-        <section className='fullscreen' style={{ backgroundColor: backgroundColor || '#2E4F3B' }}>
+        <section className='fullscreen relative' style={{ backgroundColor: backgroundColor || '#2E4F3B' }}>
             <div className='flexx2-img'>
                 <div style={{ width: "60%", paddingLeft: "100px" }}>
                     <Text
@@ -210,16 +210,17 @@ const AccordionFaq: types.Brick<AccordionProps> = ({
                         </AccordionItem>
                     </Accordion>
                 </div>
-                <div style={{ marginRight: "-35px", overflow: "hidden" }}>
-                    <Image
+                {/* <div style={{ marginRight: "-35px", overflow: "hidden" }}>
+                    
+                </div> */}
+            </div>
+            <Image
                         propName="image"
                         source={image}
                         alt="Fallback alt tag"
                         maxWidth={600}
                         imageClassName="faq-img"
                     />
-                </div>
-            </div>
         </section>
     );
 };

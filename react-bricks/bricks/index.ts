@@ -6,7 +6,7 @@ import TextList from './custom/TextList'
 import TextListVariation from './custom/TextListVariation'
 import Button from './custom/button/Button'
 import reactBricksUITheme from './react-bricks-ui'
-import digit from './custom/Digit'
+import digit from './custom/digit'
 import Accordion from './custom/AccordionFaq'
 import HeadingSection from './custom/HeadingSection'
 import CardCarousel from './custom/CardCarousel/CardCarousel'
@@ -20,7 +20,6 @@ import TextImageLeft from './custom/TextImageLeft'
 import TextListGrid from './custom/TextListGrid'
 import EngagementPoints from './custom/EngagementPoints'
 import CardVehicule from './custom/CardVehicule'
-
 import MultiStepForm from './custom/MultiStepForm/PageMultiStep'
 import CardInclusion from './custom/CardInclusion'
 import PrestationPage from './custom/Prestation/PrestationPage'
@@ -43,6 +42,9 @@ const bricks: types.Theme[] = [
           TextImageLeft,
           TextListGrid,
           // CAROUSELS,
+          CardCarousel,
+          BlogCarousel,
+          // CAROUSELS
           CardCarousel,
           BlogCarousel,
           // FEATURES

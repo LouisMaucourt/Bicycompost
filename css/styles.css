@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* Variable colors*/
 :root {
     --green-black: #2E4F3B;
@@ -45,9 +46,11 @@ h1 {
     color: var(--green-black);
 }
 
+
 .green {
     background-color: var(--green-black);
 }
+
 
 h2 {
     font-family: 'Asap', sans-serif;
@@ -225,6 +228,7 @@ textarea {
     gap: 20px;
 }
 
+
 .flex-column {
     display: flex;
     flex-direction: column;
@@ -242,8 +246,9 @@ textarea {
     display: flex;
     flex: 2;
     flex-direction: row;
-    align-items: center;
+    align-items: top;
     gap: 30px;
+    padding-top: 2rem
 }
 
 .flexx2-img {
@@ -340,6 +345,7 @@ p {
     padding: 25px;
 }
 
+
 .card-item-green {
     width: 100%;
     background-color: var(--green-black);
@@ -415,8 +421,8 @@ h5 p {
 
 .image-left {
     position: absolute;
-    bottom: -80px;
-    left: 0px;
+    left: 0;
+    bottom: 0;
     overflow: hidden;
     width: 35rem;
 }
@@ -430,6 +436,9 @@ h5 p {
 }
 
 .faq-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     width: 30rem;
 }
 
