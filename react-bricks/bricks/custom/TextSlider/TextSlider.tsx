@@ -118,7 +118,7 @@ const TextSlider: types.Brick<TextSliderProps> = ({
                                 <h3></h3>
                             </div>
                             <div key={index} className="p-0 overflow-hidden">
-                                <TextSliderItem {...child} /> {/* Utilisez CardCarouselItem ici */}
+                                <TextSliderItem {...child} />
                             </div>
                         </section>
                     )
@@ -135,7 +135,7 @@ TextSlider.schema = {
     repeaterItems: [
         {
             name: 'items',
-            itemType: blockNames.TextSliderItem,
+            itemType: 'eee',
             itemLabel: 'Item',
             min: 1,
             max: 5,
