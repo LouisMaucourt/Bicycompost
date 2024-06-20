@@ -2,6 +2,7 @@ import React from 'react'
 import { types } from 'react-bricks/frontend'
 import blockNames from '../../blockNames'
 import {
+  backgroundSideGroup,
   containerWidthSideGroup,
   LayoutProps,
   neutralBackgroundSideGroup,
@@ -78,6 +79,7 @@ Title.schema = {
     neutralBackgroundSideGroup,
     paddingBordersSideGroup,
     containerWidthSideGroup,
+    backgroundSideGroup,
     {
       groupName: 'Text',
       defaultOpen: true,
