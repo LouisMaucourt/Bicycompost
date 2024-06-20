@@ -4,7 +4,7 @@ import Container from "../react-bricks-ui/shared/components/Container";
 import React from 'react';
 import Button from './button/Button';
 
-interface TextListProps {
+interface textImageProps {
     image: types.IImageSource
     title: types.TextValue
     titleText: types.TextValue
@@ -21,14 +21,14 @@ interface TextListProps {
     buttons: types.RepeaterItems
 }
 
-const TextList: types.Brick<TextListProps> = ({ title, titleText, description, descriptionTwo, image, buttons, imageCardOne, descriptionCardOne, imageCardTwo, descriptionCardTwo, imageCardThree, descriptionCardThree, imageCardFour, descriptionCardFour }) => {
+const TextImage: types.Brick<textImageProps> = ({ title, titleText, description, descriptionTwo, image, buttons, imageCardOne, descriptionCardOne, imageCardTwo, descriptionCardTwo, imageCardThree, descriptionCardThree, imageCardFour, descriptionCardFour }) => {
     return (
-        <section className="background-beige">
+        <section className="background-green">
             <div style={{ flexDirection: "column", gap: "50px", display: "flex", height: "auto" }} className='container-content'>
                 <Text
                     propName="text"
                     value={title}
-                    renderBlock={({ children }) => <h2 style={{ lineHeight: '4rem' }}>{children}</h2>}
+                    renderBlock={({ children }) => <h3 style={{ color: "white" }}>{children}</h3>}
                     placeholder="Titre"
                 />
                 <div className='flexx2'>
@@ -37,30 +37,24 @@ const TextList: types.Brick<TextListProps> = ({ title, titleText, description, d
                             propName="image"
                             source={image}
                             alt="Fallback alt tag"
-                            maxWidth={600}
+                            maxWidth={500}
                         />
                     </span>
-                    <div>
+                    <div style={{ width: "100%" }}>
                         <Text
                             propName="titletext"
                             value={titleText}
-                            renderBlock={({ children }) => <h5>{children}</h5>}
+                            renderBlock={({ children }) => <h5 style={{ color: "white" }}>{children}</h5>}
                             placeholder="Salut"
                         />
                         <RichText
                             propName='description'
                             value={description}
-                            renderBlock={({ children }) => <p>{children}</p>}
+                            renderBlock={({ children }) => <p style={{ color: "white" }}>{children}</p>}
                             placeholder='Description...'
                             allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Italic]}
                         />
-                        <RichText
-                            propName='descriptionTwo'
-                            value={descriptionTwo}
-                            renderBlock={({ children }) => <p style={{ marginTop: "30px" }}>{children}</p>}
-                            placeholder='Description...'
-                            allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Italic]}
-                        />
+
                         <div className='margin-h-30'>
                             <Button propName='button' buttonStyle='button-orange default btn-text-image' buttonText='coucu' buttonPath='/' />
                         </div>
@@ -73,7 +67,7 @@ const TextList: types.Brick<TextListProps> = ({ title, titleText, description, d
                             propName="imageCardOne"
                             source={imageCardOne}
                             alt="Fallback alt tag"
-                            maxWidth={50}
+                            maxWidth={5}
                         />
                         <RichText
                             propName='descriptionCardOne'
@@ -114,21 +108,6 @@ const TextList: types.Brick<TextListProps> = ({ title, titleText, description, d
                             allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Italic]}
                         />
                     </div>
-                    <div className='card-item-green-800 flex-row' style={{ height: '100px', padding: "15px" }}>
-                        <Image
-                            propName="imageCardFour"
-                            source={imageCardFour}
-                            alt="Fallback alt tag"
-                            maxWidth={50}
-                        />
-                        <RichText
-                            propName='descriptionCardFour'
-                            value={descriptionCardFour}
-                            renderBlock={({ children }) => <p>{children}</p>}
-                            placeholder='Description...'
-                            allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Italic]}
-                        />
-                    </div>
                 </div>
 
             </div>
@@ -137,18 +116,40 @@ const TextList: types.Brick<TextListProps> = ({ title, titleText, description, d
     )
 }
 
-TextList.schema = {
-    name: 'Texte Liste',
-    label: 'Texte Liste',
+TextImage.schema = {
+    name: 'Texte Liste Variation',
+    label: 'Texte Liste Variation',
     getDefaultProps: () => ({
         title: `C'est un titre`,
+        titleText: `C'est un sous-titre`,
         description: 'Ceci est une description.',
-        buttons: [],
+        descriptionTwo: 'Ceci est une seconde description.',
         image: {
             src: 'https://via.placeholder.com/600',
             alt: 'Placeholder image'
-        }
+        },
+        imageCardOne: {
+            src: 'https://via.placeholder.com/50',
+            alt: 'Placeholder image card one'
+        },
+        descriptionCardOne: 'Description de la carte un.',
+        imageCardTwo: {
+            src: 'https://via.placeholder.com/50',
+            alt: 'Placeholder image card two'
+        },
+        descriptionCardTwo: 'Description de la carte deux.',
+        imageCardThree: {
+            src: 'https://via.placeholder.com/50',
+            alt: 'Placeholder image card trois'
+        },
+        descriptionCardThree: 'Description de la carte trois.',
+        imageCardFour: {
+            src: 'https://via.placeholder.com/50',
+            alt: 'Placeholder image card quatre'
+        },
+        descriptionCardFour: 'Description de la carte quatre.',
+        buttons: [],
     }),
 }
 
-export default TextList
+export default TextImage

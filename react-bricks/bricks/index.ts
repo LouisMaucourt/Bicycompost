@@ -3,9 +3,10 @@ import HeroUnit from './custom/MyHeroUnit'
 import Thumbnail from './custom/Thumbnail'
 import TextImage from './custom/TextImage'
 import TextList from './custom/TextList'
+import TextListVariation from './custom/TextListVariation';
 import Button from './custom/button/Button'
 import reactBricksUITheme from './react-bricks-ui'
-import digit from './custom/digit'
+import digit from './custom/Digit'
 import Accordion from './custom/AccordionFaq'
 import HeadingSection from './custom/HeadingSection'
 import CardCarousel from './custom/CardCarousel/CardCarousel'
@@ -15,7 +16,12 @@ import TextSlider from './custom/TextSlider/TextSlider'
 import SubmitButton from './custom/button/SubmitButton'
 import SituationSearch from './custom/SituationSearch'
 import InteractiveMap from './react-bricks-ui/contacts/Maps/InteractiveMap'
-// import MultiStepForm from './custom/MultiStepForm/pageMultiStep';
+import EngagementPoints from './custom/EngagementPoints';
+import CardVehicule from './custom/CardVehicule';
+
+import MultiStepForm from './custom/MultiStepForm/PageMultiStep';
+import CardInclusion from './custom/CardInclusion';
+import PrestationPage from './custom/Prestation/PrestationPage';
 
 const bricks: types.Theme[] = [
   reactBricksUITheme,
@@ -45,7 +51,12 @@ const bricks: types.Theme[] = [
           Contact,
           SituationSearch,
           TextSlider,
-          // MultiStepForm
+          EngagementPoints,
+          TextListVariation,
+          CardVehicule,
+          CardInclusion,
+          MultiStepForm,
+          PrestationPage
         ],
       },
     ],

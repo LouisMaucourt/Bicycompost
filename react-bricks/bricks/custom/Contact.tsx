@@ -63,7 +63,7 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
                                 textColors.GRAY_600
                             )}
                         >
-                            <li className="color-red">
+                            <div className="color-red">
                                 <Image
                                     propName="iconPlace"
                                     source={iconPlace}
@@ -85,8 +85,8 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
                                         )}
                                     />
                                 </div>
-                            </li>
-                            <li>
+                            </div>
+                            <div>
                                 <Link
                                     className="color-red"
                                     href={`tel:${typeof phoneNumber === 'string'
@@ -106,8 +106,8 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
                                         renderBlock={({ children }) => <span>{children}</span>}
                                     />
                                 </Link>
-                            </li>
-                            <li>
+                            </div>
+                            <div>
                                 <Link
                                     className="color-red hover:-translate-y-px transition-all ease-out duration-150"
                                     href={`mailto:${typeof email === 'string' ? email : Plain.serialize(email)
@@ -125,7 +125,7 @@ const ContactsForm: types.Brick<ContactsFormProps> = ({
                                         renderBlock={({ children }) => <span>{children}</span>}
                                     />
                                 </Link>
-                            </li>
+                            </div>
                         </ul>
                     </div>
                     <div className="form-content">

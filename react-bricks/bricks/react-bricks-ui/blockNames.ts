@@ -80,6 +80,7 @@ enum blockNames {
   TextSliderItem = 'TextSliderItem',
   CardCarouselItem = 'CardCarouselItem',
   InteractiveMap = 'interactive-map',
+  Accordion = "Accordion",
 }
 
 export default blockNames

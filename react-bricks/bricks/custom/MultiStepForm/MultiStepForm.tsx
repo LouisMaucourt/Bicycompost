@@ -1,96 +1,119 @@
-// import React, { useEffect, useState } from 'react';
-// import StepA from './StepA';
-// import StepB from './StepB';
-// import StepC from './StepC';
-// import StepD from './StepD';
-// import StepFinal from './StepFinal';
+import React, { useEffect, useState } from 'react';
+import StepA from './StepA';
+import StepB from './StepB'; // Assuming you have StepB component implemented similarly
+import StepC from './StepC';
+import StepFinal from './StepFinal'; // Assuming you have StepFinal component implemented similarly
 
-// const initialFormData = {
-//     firstName: '',
-//     lastName: '',
-//     businessName: '',
-//     businessWebsite: '',
-//     businessEmail: '',
-//     agreeToTerms: false,
-// };
+const initialFormData = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    tel: '',
+    society: '',
+    Collectivity: '',
+    message: '',
+    agreeToTerms: true,
+    drone: '', // Add radio button state to formData
+    option1: '',
+    option2: '',
+    option3: '',
+    option4: '',
+    option5: '',
+    option6: ''
+};
 
-// const StepArray = ['A', 'B', 'C', 'D'];
+const StepArray = ['Nos prestations', 'Vos Coordonnées', 'Récap']; // Assuming you have these steps defined
 
-// const MultiStepForm = ({ showStepNumber }) => {
-//     const [step, setStep] = useState("A");
-//     const [formData, setFormData] = useState(initialFormData);
-//     const [isSubmitted, setIsSubmitted] = useState(false);
+const MultiStepForm = ({ showStepNumber }) => {
+    const [step, setStep] = useState('A');
+    const [formData, setFormData] = useState(initialFormData);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
-//     const handleNextStep = () => {
-//         if (step === 'A') setStep('B');
-//         else if (step === 'B') setStep('C');
-//         else if (step === 'C') setStep('D');
-//     };
+    const handleNextStep = () => {
+        if (step === 'A') setStep('B');
+        else if (step === 'B') setStep('C');
+    };
 
-//     const handlePreviousStep = () => {
-//         if (step === 'D') setStep('C');
-//         else if (step === 'C') setStep('B');
-//         else if (step === 'B') setStep('A');
-//     };
+    const handlePreviousStep = () => {
+        if (step === 'C') setStep('B');
+        else if (step === 'B') setStep('A');
+    };
 
-//     const handleChangeInput = (event) => {
-//         const fieldName = event.target.name;
-//         let fieldValue;
-//         if (fieldName === 'agreeToTerms') {
-//             fieldValue = event.target.checked;
-//         } else {
-//             fieldValue = event.target.value;
-//         }
-//         setFormData({
-//             ...formData,
-//             [fieldName]: fieldValue,
-//         });
-//     };
+    const handleChangeInput = (event) => {
+        const { name, value, checked, type } = event.target;
 
-//     const handleSubmitFormData = () => {
-//         if (!formData.agreeToTerms) {
-//             alert(`Vous devez accepter les termes de condition d'utilisation`);
-//         } else {
-//             setStep('Final');
-//             setIsSubmitted(true);
-//         }
-//     };
+        // For checkboxes, handle the checked property
+        const fieldValue = type === 'checkbox' ? checked : value;
 
-//     useEffect(() => {
-//         if (isSubmitted) {
-//             console.log(formData);
-//         }
-//     }, [formData]);
+        setFormData({
+            ...formData,
+            [name]: fieldValue,
+        });
+    };
 
-//     const renderTopStepData = () => {
-//         if (!showStepNumber || step === 'Final') {
-//             return null;
-//         }
-//         return (
-//             <section>
-//                 {StepArray.map((item) => (
-//                     <div
-//                         key={item}
-//                         className=""
-//                         onClick={() => setStep(item)}
-//                     >
-//                         {item}
-//                     </div>
-//                 ))}
-//             </section>
-//         );
-//     };
+    const handleSubmitFormData = () => {
+        if (!formData.agreeToTerms) {
+            alert(`Vous devez accepter les termes de condition d'utilisation`);
+        } else {
+            setStep('Final');
+            setIsSubmitted(true);
+        }
+    };
 
-//     return (
-//         <div className="flexx2">
-//             {renderTopStepData()}
-//             {step === 'A' && <StepA onChange={handleChangeInput} />}
-//             {step === 'B' && <StepB onChange={handleChangeInput} />}
-//             {step === 'C' && <StepC onChange={handleChangeInput} />}
-//             {step === 'D' && <StepD onChange={handleChangeInput} />}
-//             {step === 'Final' && <StepFinal onSubmit={handleSubmitFormData} />}
-//         </div>
-//     );
-// };
+    useEffect(() => {
+        if (isSubmitted) {
+            console.log(formData);
+        }
+    }, [formData, isSubmitted]);
 
-// export default MultiStepForm;
+    const renderTopStepData = () => {
+        if (!showStepNumber || step === 'Final') {
+            return null;
+        }
+        return (
+            <section>
+                {StepArray.map((item) => (
+                    <div
+                        key={item}
+                        className={step === item ? 'active' : ''}
+                        onClick={() => setStep(item)}
+                    >
+                        {item}
+                    </div>
+                ))}
+            </section>
+        );
+    };
+
+    return (
+        <div id='sommaire' className="">
+            {renderTopStepData()}
+            {step === 'A' ? (
+                <StepA
+                    formData={formData}
+                    handleChangeInput={handleChangeInput}
+                    handleNextStep={handleNextStep}
+                />
+            ) : null}
+            {step === 'B' ? (
+                <StepB
+                    formData={formData}
+                    handleChangeInput={handleChangeInput}
+                    handlePreviewStep={handlePreviousStep}
+                    handleNextStep={handleNextStep}
+                />
+            ) : null}
+            {step === 'C' ? (
+                <StepC
+                    formData={formData}
+                    handleChangeInput={handleChangeInput}
+                    handlePrevStep={handlePreviousStep}
+                    handleSubmitFormData={handleSubmitFormData}
+                />
+            ) : null}
+            {step === 'Final' ? <StepFinal onSubmit={handleSubmitFormData} /> : null}
+        </div>
+    );
+};
+
+export default MultiStepForm;
