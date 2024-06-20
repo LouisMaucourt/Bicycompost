@@ -87,12 +87,15 @@ const Header: types.Brick<HeaderProps> = ({
               Nous contacter
             </button>
           </a>
-          <Button
-            propName="connexionButton"
-            buttonText={''}
-            buttonStyle="flex flex-row space-x-5 items-center justify-end button-beige round"
-            buttonPath="#"
-          />
+          <a href="#" className="flex flex-row space-x-5 items-center justify-end button-beige round">
+            <button>
+              <img
+                src="https://assets.reactbricks.com/I9Q1BfsHQDk_MLe/images/master/goAM0n0_mFi5VGz.svg"
+                alt=""
+                className="h-5 w-6"
+              />
+            </button>
+          </a>
           <Repeater
             propName="buttons"
             // No local link to avoid prefetching
