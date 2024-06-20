@@ -1,12 +1,11 @@
 import React from 'react';
 import { types, Image, RichText, Text } from 'react-bricks/frontend';
 import Button from '../button/Button';
-import classNames from 'classnames';
 
-const ProductDescription = ({ propNamePrefix }) => {
+const ProductDescription2 = ({ propNamePrefix }) => {
     return (
         <div className='background-green'>
-            <div className='flexx2 container-content'>
+            <div className='flexx2 content-container'>
                 <Image
                     propName={`${propNamePrefix}-image`}
                     alt="Fallback alt tag"
@@ -56,13 +55,13 @@ const ProductDescription = ({ propNamePrefix }) => {
                         </div>
                         <div className='flex-row' style={{ justifyContent: "flex-start" }}>
                             <Image
-                                propName={`${propNamePrefix}-icon`}
+                                propName={`${propNamePrefix}-iconThree`}
                                 alt="Fallback alt tag"
                                 maxWidth={30}
                                 imageClassName='image-20'
                             />
                             <RichText
-                                propName={`${propNamePrefix}-descriptionIcon`}
+                                propName={`${propNamePrefix}-descriptionIconThree`}
                                 renderBlock={({ children }) => <p style={{ color: "white" }}>{children}</p>}
                                 placeholder='Description...'
                                 allowedFeatures={[types.RichTextFeatures.Bold, types.RichTextFeatures.Italic]}
@@ -70,7 +69,7 @@ const ProductDescription = ({ propNamePrefix }) => {
                         </div>
                     </div>
                     <div className='margin-h-30'>
-                        <Button propName={`${propNamePrefix}-button`} buttonStyle='button-orange default btn-text-image' buttonText='coucu' buttonPath='/devis' />
+                        <Button propName={`${propNamePrefix}-button`} buttonStyle='button-orange default btn-text-image' buttonText='coucu' buttonPath='/' />
                     </div>
                 </div>
             </div>
@@ -78,13 +77,13 @@ const ProductDescription = ({ propNamePrefix }) => {
     );
 };
 
-ProductDescription.schema = {
-    name: 'productdescription',
-    label: 'ProductDescription',
+ProductDescription2.schema = {
+    name: 'ProductDescription2',
+    label: 'ProductDescription2',
     getDefaultProps: () => ({
         title: 'Default Title',
     }),
     sideEditProps: [],
 };
 
-export default ProductDescription;
+export default ProductDescription2;

@@ -23,6 +23,7 @@ import CardVehicule from './custom/CardVehicule'
 import MultiStepForm from './custom/MultiStepForm/PageMultiStep'
 import CardInclusion from './custom/CardInclusion'
 import PrestationPage from './custom/Prestation/PrestationPage'
+import furniturePage from './custom/Furniture/PrestationPage';
 
 const bricks: types.Theme[] = [
   reactBricksUITheme,
@@ -64,6 +65,7 @@ const bricks: types.Theme[] = [
           CardInclusion,
           MultiStepForm,
           PrestationPage,
+          furniturePage,
         ],
       },
     ],

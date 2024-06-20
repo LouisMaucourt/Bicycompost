@@ -25,18 +25,18 @@ const initialFormData = {
 const StepArray = ['Nos prestations', 'Vos Coordonnées', 'Récap']; // Assuming you have these steps defined
 
 const MultiStepForm = ({ showStepNumber }) => {
-    const [step, setStep] = useState('A');
+    const [step, setStep] = useState('Nos prestations');
     const [formData, setFormData] = useState(initialFormData);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleNextStep = () => {
-        if (step === 'A') setStep('B');
-        else if (step === 'B') setStep('C');
+        if (step === 'prestations') setStep('Vos Coordonnées');
+        else if (step === 'Vos Coordonnées') setStep('Récap');
     };
 
     const handlePreviousStep = () => {
-        if (step === 'C') setStep('B');
-        else if (step === 'B') setStep('A');
+        if (step === 'Récap') setStep('Vos Coordonnées');
+        else if (step === 'Vos Coordonnées') setStep('Nos prestations');
     };
 
     const handleChangeInput = (event) => {
@@ -88,14 +88,14 @@ const MultiStepForm = ({ showStepNumber }) => {
     return (
         <div id='sommaire' className="">
             {renderTopStepData()}
-            {step === 'A' ? (
+            {step === 'Nos prestations' ? (
                 <StepA
                     formData={formData}
                     handleChangeInput={handleChangeInput}
                     handleNextStep={handleNextStep}
                 />
             ) : null}
-            {step === 'B' ? (
+            {step === 'Vos Coordonnées' ? (
                 <StepB
                     formData={formData}
                     handleChangeInput={handleChangeInput}
@@ -103,7 +103,7 @@ const MultiStepForm = ({ showStepNumber }) => {
                     handleNextStep={handleNextStep}
                 />
             ) : null}
-            {step === 'C' ? (
+            {step === 'Récap' ? (
                 <StepC
                     formData={formData}
                     handleChangeInput={handleChangeInput}

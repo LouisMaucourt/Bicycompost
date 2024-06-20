@@ -24,8 +24,8 @@ const PrestationPage = ({ title }) => {
 };
 
 PrestationPage.schema = {
-    name: 'prestationpage',
-    label: 'PrestationPage',
+    name: 'furniturePage',
+    label: 'furniturePage',
     getDefaultProps: () => ({
         title: 'Thick as a brick',
     }),
