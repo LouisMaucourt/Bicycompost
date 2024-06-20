@@ -6,7 +6,6 @@ import {
   buttonColors,
   highlightBgColors,
   highlightTextColors,
-  textColors,
 } from '../../colors'
 import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
@@ -60,9 +59,6 @@ const TextMedia: types.Brick<TextMediaProps> = ({
   platform,
   videoId,
 }) => {
-  const titleColor = textColors.GRAY_900
-  const textColor = textColors.GRAY_700
-
   return (
     <Section
       backgroundColor={backgroundColor}
@@ -79,7 +75,7 @@ const TextMedia: types.Brick<TextMediaProps> = ({
           )}
         >
           <div
-            className={classNames('w-full md:w-2/5 lg:pr-[5%] flex flex-col')}
+            className={classNames('w-full md:w-2/4 lg:pr-[5%] flex flex-col')}
           >
             <Repeater
               propName="badge"
@@ -93,35 +89,44 @@ const TextMedia: types.Brick<TextMediaProps> = ({
             <RichText
               propName="title"
               renderBlock={(props) => (
-                <h2
+                <h3
                   className={classNames(
-                    'mt-0 text-center md:text-left text-2xl leading-7',
-                    heroSizeTitle
-                      ? 'md:text-[40px] md:leading-tight'
-                      : 'md:text-[32px] md:leading-tight',
-                    extraBoldTitle ? 'font-extrabold' : 'font-bold',
+                    heroSizeTitle,
+                    extraBoldTitle ? 'font-bold' : 'font',
                     bigText ? 'mb-4' : 'mb-3',
-                    titleColor
+                    'green-black'
                   )}
                   {...props.attributes}
                 >
                   {props.children}
-                </h2>
+                </h3>
               )}
               placeholder="Type a title..."
               allowedFeatures={[types.RichTextFeatures.Highlight]}
             />
             <RichText
-              propName="text"
+              propName="subtitle"
               renderBlock={(props) => (
-                <p
+                <h5
                   className={classNames(
-                    'leading-7 mb-3 text-center md:text-left',
-                    { 'md:text-xl md:leading-8': bigText },
-                    textColor
+                    heroSizeTitle,
+                    extraBoldTitle ? 'font-bold' : 'font',
+                    bigText ? 'mb-4' : 'mb-3',
+                    'green-black'
                   )}
                   {...props.attributes}
                 >
+                  {props.children}
+                </h5>
+              )}
+              placeholder="Type a title..."
+              allowedFeatures={[types.RichTextFeatures.Highlight]}
+            />
+
+            <RichText
+              propName="text"
+              renderBlock={(props) => (
+                <p className="green-black" {...props.attributes}>
                   {props.children}
                 </p>
               )}
@@ -174,7 +179,8 @@ const TextMedia: types.Brick<TextMediaProps> = ({
               className={classNames(
                 mobileIcon ? 'w-24' : 'w-full',
                 mobileImageTop ? 'mt-0 mb-10' : 'mt-10 mb-0',
-                'md:w-1/2 md:mt-0 md:mb-0'
+                'md:w-1/2 md:mt-0 md:mb-0',
+                'flex justify-center'
               )}
             >
               <Image

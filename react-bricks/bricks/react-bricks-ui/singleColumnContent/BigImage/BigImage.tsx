@@ -5,6 +5,7 @@ import Container from '../../shared/components/Container'
 import Section from '../../shared/components/Section'
 import { photos } from '../../shared/defaultImages'
 import {
+  backgroundColorsEditProps,
   containerWidthSideGroup,
   LayoutProps,
   neutralBackgroundSideGroup,
@@ -56,6 +57,7 @@ BigImage.schema = {
     neutralBackgroundSideGroup,
     paddingBordersSideGroup,
     containerWidthSideGroup,
+    backgroundColorsEditProps,
   ],
 }
 
