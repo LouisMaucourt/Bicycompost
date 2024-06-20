@@ -43,12 +43,12 @@ const AccordionFaq: types.Brick<AccordionProps> = ({
 }) => {
     return (
         <section className='fullscreen relative' style={{ backgroundColor: backgroundColor || '#2E4F3B' }}>
-            <div className='flexx2-img'>
+            <div className='flexx2-img padding-height'>
                 <div style={{ width: "60%", paddingLeft: "100px" }}>
                     <Text
                         propName="title"
                         value={title}
-                        renderBlock={({ children }) => <h3 style={{ color: titleColor }}>{children}</h3>}
+                        renderBlock={({ children }) => <h3 style={{ color: 'white' }}>{children}</h3>}
                         placeholder="Titre ici"
                     />
                     <Accordion variant="bordered">
@@ -59,12 +59,12 @@ const AccordionFaq: types.Brick<AccordionProps> = ({
                                 <Text
                                     propName="titleOne"
                                     value={title}
-                                    renderBlock={({ children }) => <h3 style={{ color: titleColor }}>{children}</h3>}
+                                    renderBlock={({ children }) => <h5 style={{ color: titleColor }}>{children}</h5>}
                                     placeholder="Titre ici"
                                 />
                             }
                             className="accordeon-title"
-                            style={{ textAlign: 'left', color: textColor }}
+                            style={{ textAlign: 'left', color: "white" }}
                         >
                             <RichText
                                 propName='description'
@@ -215,12 +215,12 @@ const AccordionFaq: types.Brick<AccordionProps> = ({
                 </div> */}
             </div>
             <Image
-                        propName="image"
-                        source={image}
-                        alt="Fallback alt tag"
-                        maxWidth={600}
-                        imageClassName="faq-img"
-                    />
+                propName="image"
+                source={image}
+                alt="Fallback alt tag"
+                maxWidth={600}
+                imageClassName="faq-img"
+            />
         </section>
     );
 };

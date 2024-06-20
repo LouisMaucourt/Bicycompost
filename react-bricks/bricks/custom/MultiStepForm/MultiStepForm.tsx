@@ -13,7 +13,6 @@ const initialFormData = {
     Collectivity: '',
     message: '',
     agreeToTerms: true,
-    drone: '', // Add radio button state to formData
     option1: '',
     option2: '',
     option3: '',
@@ -22,7 +21,7 @@ const initialFormData = {
     option6: ''
 };
 
-const StepArray = ['Nos prestations', 'Vos Coordonnées', 'Récap']; // Assuming you have these steps defined
+const StepArray = ['Nos prestations', 'Vos Coordonnées', 'Récap'];
 
 const MultiStepForm = ({ showStepNumber }) => {
     const [step, setStep] = useState('Nos prestations');
@@ -30,7 +29,7 @@ const MultiStepForm = ({ showStepNumber }) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleNextStep = () => {
-        if (step === 'prestations') setStep('Vos Coordonnées');
+        if (step === 'Nos prestations') setStep('Vos Coordonnées');
         else if (step === 'Vos Coordonnées') setStep('Récap');
     };
 
@@ -42,7 +41,6 @@ const MultiStepForm = ({ showStepNumber }) => {
     const handleChangeInput = (event) => {
         const { name, value, checked, type } = event.target;
 
-        // For checkboxes, handle the checked property
         const fieldValue = type === 'checkbox' ? checked : value;
 
         setFormData({
